@@ -14,3 +14,9 @@ body,
   overflow: hidden;
   background: #000;
 }
+
+:root {
+  /* Consistent body text for card/content paragraphs across all slides (1920×1080 canvas) */
+  --slide-body: 20px;
+  --slide-card-heading: 20px;
+}

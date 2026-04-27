@@ -188,7 +188,7 @@ export function Slide03() {
                 </div>
                 <p
                   style={{
-                    fontSize: 26,
+                    fontSize: "var(--slide-body)",
                     color: "#374151",
                     lineHeight: 1.7,
                     margin: 0,
@@ -255,7 +255,7 @@ export function Slide03() {
                 </div>
                 <p
                   style={{
-                    fontSize: 26,
+                    fontSize: "var(--slide-body)",
                     color: "#374151",
                     lineHeight: 1.7,
                     margin: 0,
