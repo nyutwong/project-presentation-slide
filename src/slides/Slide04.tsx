@@ -4,6 +4,7 @@ import { SlideShell } from "../components/SlideShell.tsx";
 import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
+import Lanyard from "../components/Lanyard.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
 import { EASE } from "../lib/motion.ts";
 
@@ -337,147 +338,14 @@ export function Slide04() {
       {/* Areas 2 + 3: Two columns filling remaining height */}
       <div style={{ flex: 1, display: "flex", gap: 24, minHeight: 0 }}>
 
-        {/* Area 2: Alex Profile Card — left column, full height */}
+        {/* Area 2: Lanyard — left column, full height */}
         <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            borderRadius: 18,
-            border: "1px solid #EDE9FE",
-            overflow: "hidden",
-            background: "#fff",
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+          style={{ flex: 1, minHeight: 0 }}
         >
-          {/* Gradient accent bar */}
-          <div
-            style={{
-              height: 5,
-              background: "linear-gradient(90deg, #7C3AED, #A855F7, #EC4899)",
-              flexShrink: 0,
-            }}
-          />
-
-          {/* Card body */}
-          <div
-            style={{
-              flex: 1,
-              padding: "28px 24px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              background:
-                "radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.05) 0%, transparent 60%)",
-            }}
-          >
-            {/* Avatar */}
-            <div
-              style={{
-                width: 88,
-                height: 88,
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #7C3AED, #EC4899)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 34,
-                fontWeight: 900,
-                color: "#fff",
-                marginBottom: 16,
-                boxShadow: "0 8px 24px rgba(124,58,237,0.25)",
-                flexShrink: 0,
-              }}
-            >
-              A
-            </div>
-
-            {/* Name */}
-            <div
-              style={{
-                fontSize: 26,
-                fontWeight: 900,
-                color: "#0A0A0A",
-                letterSpacing: "-0.5px",
-                marginBottom: 10,
-              }}
-            >
-              Alex
-            </div>
-
-            {/* Role pill */}
-            <Pill>New Project Manager</Pill>
-
-            {/* Divider */}
-            <div
-              style={{
-                width: "100%",
-                height: 1,
-                background:
-                  "linear-gradient(90deg, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent)",
-                margin: "20px 0",
-                flexShrink: 0,
-              }}
-            />
-
-            {/* Description */}
-            <p
-              style={{
-                fontSize: "var(--slide-body)",
-                color: "#6B7280",
-                lineHeight: 1.7,
-                margin: 0,
-                textAlign: "center",
-              }}
-            >
-              <ThaiText>
-                Project Manager หน้าใหม่ที่เพิ่งเข้ามาทำงานที่บริษัท X
-                และกำลังเผชิญกับความท้าทายในการค้นหาข้อมูล
-              </ThaiText>
-            </p>
-
-            {/* Spacer */}
-            <div style={{ flex: 1 }} />
-
-            {/* Company tag */}
-            <Pill
-              color="#6B7280"
-              bg="rgba(107,114,128,0.06)"
-              border="rgba(107,114,128,0.15)"
-            >
-              Company X
-            </Pill>
-          </div>
-
-          {/* Aingo footer */}
-          <div
-            style={{
-              padding: "14px 24px",
-              borderTop: "1px solid #F0F0F0",
-              background:
-                "linear-gradient(135deg, rgba(124,58,237,0.06), rgba(168,85,247,0.1))",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexShrink: 0,
-            }}
-          >
-            <span style={{ fontSize: 12, color: "#A78BFA", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Powered by
-            </span>
-            <span
-              style={{
-                fontSize: 16,
-                fontWeight: 900,
-                color: "#7C3AED",
-                letterSpacing: "0.06em",
-              }}
-            >
-              Aingo
-            </span>
-          </div>
+          <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} fov={25} transparent />
         </motion.div>
 
         {/* Area 3: Content — right column, single stacked column */}
