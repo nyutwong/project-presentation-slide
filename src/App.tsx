@@ -1,7 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { slides } from './slides/index.ts';
-import { usePresentation } from './hooks/usePresentation.ts';
-import { PresentationFrame } from './components/PresentationFrame.tsx';
+import { AnimatePresence, motion } from "framer-motion";
+import { slides } from "./slides/index.ts";
+import { usePresentation } from "./hooks/usePresentation.ts";
+import { PresentationFrame } from "./components/PresentationFrame.tsx";
+import { SlideContext } from "./context/SlideContext.tsx";
 
 const slideVariants = {
   enter: (dir: 1 | -1) => ({ x: dir * 1920 }),
@@ -30,13 +31,15 @@ export default function App() {
           exit="exit"
           transition={slideTransition}
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
           }}
         >
-          <CurrentSlide />
+          <SlideContext.Provider value={{ slideNum: currentIndex + 1 }}>
+            <CurrentSlide />
+          </SlideContext.Provider>
         </motion.div>
       </AnimatePresence>
     </PresentationFrame>

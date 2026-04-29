@@ -119,7 +119,7 @@ export function Slide10() {
           marginBottom: 24,
         }}
       >
-        <SlideLabel label="10 — Aingo" style={{ marginBottom: 14 }} />
+        <SlideLabel label="Aingo" style={{ marginBottom: 14 }} />
         <h1
           style={{
             fontSize: 64,

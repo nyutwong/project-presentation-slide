@@ -99,7 +99,7 @@ function ParadoxIcon() {
 export function Slide03() {
   return (
     <SlideShell glows={GLOWS}>
-      <SlideLabel label="03 — Section" style={{ marginBottom: 40 }} />
+      <SlideLabel label="Section" style={{ marginBottom: 40 }} />
 
       {/* Split layout */}
       <div style={{ flex: 1, display: "flex", gap: 72, alignItems: "stretch" }}>

@@ -3,6 +3,7 @@ import { SlideShell } from "../components/SlideShell.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { EASE } from "../lib/motion.ts";
+import { useSlideNum } from "../context/SlideContext.tsx";
 
 const GLOWS = [
   {
@@ -24,6 +25,8 @@ const GLOWS = [
 ];
 
 export function Slide02() {
+  const slideNum = useSlideNum();
+  const numLabel = String(slideNum).padStart(2, "0");
   return (
     <SlideShell
       glows={GLOWS}
@@ -61,7 +64,7 @@ export function Slide02() {
             fontWeight: 700,
           }}
         >
-          02 — Section
+          {numLabel} — Section
         </span>
         <div
           style={{

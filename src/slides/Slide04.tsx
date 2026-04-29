@@ -317,7 +317,7 @@ export function Slide04() {
           marginBottom: 24,
         }}
       >
-        <SlideLabel label="04 — Problems" style={{ marginBottom: 16 }} />
+        <SlideLabel label="Problems" style={{ marginBottom: 16 }} />
         <h1
           style={{
             fontSize: 72,
@@ -337,7 +337,6 @@ export function Slide04() {
 
       {/* Areas 2 + 3: Two columns filling remaining height */}
       <div style={{ flex: 1, display: "flex", gap: 24, minHeight: 0 }}>
-
         {/* Area 2: Lanyard — left column, full height */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -345,7 +344,12 @@ export function Slide04() {
           transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           style={{ flex: 1, minHeight: 0 }}
         >
-          <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} fov={25} transparent />
+          <Lanyard
+            position={[0, 0, 15]}
+            gravity={[0, -40, 0]}
+            fov={25}
+            transparent
+          />
         </motion.div>
 
         {/* Area 3: Content — right column, single stacked column */}
@@ -353,7 +357,13 @@ export function Slide04() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.42, ease: EASE }}
-          style={{ flex: 1, display: "flex", flexDirection: "column", gap: 12, minHeight: 0 }}
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+            minHeight: 0,
+          }}
         >
           {/* ความเป็นจริงที่ต้องเจอ — header */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -373,46 +383,121 @@ export function Slide04() {
               borderLeft: "3px solid #7C3AED",
             }}
           >
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#7C3AED", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 5 }}>
+            <div
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                color: "#7C3AED",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                marginBottom: 5,
+              }}
+            >
               <ThaiText>ความต้องการ</ThaiText>
             </div>
-            <p style={{ fontSize: "var(--slide-body)", color: "#374151", margin: 0, lineHeight: 1.6 }}>
-              <ThaiText>หา Technical Specifications ของโครงการที่เปิดตัวไปเมื่อไตรมาสที่แล้ว</ThaiText>
+            <p
+              style={{
+                fontSize: "var(--slide-body)",
+                color: "#374151",
+                margin: 0,
+                lineHeight: 1.6,
+              }}
+            >
+              <ThaiText>
+                หา Technical Specifications
+                ของโครงการที่เปิดตัวไปเมื่อไตรมาสที่แล้ว
+              </ThaiText>
             </p>
           </div>
 
           {/* Challenge 1 */}
-          <div style={{ padding: "14px 18px", background: "#FAFAFA", borderRadius: 14, border: "1px solid #F0F0F0" }}>
+          <div
+            style={{
+              padding: "14px 18px",
+              background: "#FAFAFA",
+              borderRadius: 14,
+              border: "1px solid #F0F0F0",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
               <SearchFailIcon />
               <div>
-                <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 700, color: "#EF4444", marginBottom: 6 }}>
+                <div
+                  style={{
+                    fontSize: "var(--slide-card-heading)",
+                    fontWeight: 700,
+                    color: "#EF4444",
+                    marginBottom: 6,
+                  }}
+                >
                   <ThaiText>การค้นหาไร้ประสิทธิภาพ</ThaiText>
                 </div>
-                <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
-                  <ThaiText>Keyword-Search แบบเดิมให้ผลลัพธ์เป็นรายการไฟล์นับร้อย โดยไม่เกี่ยวกับความต้องการจริง</ThaiText>
+                <p
+                  style={{
+                    fontSize: "var(--slide-body)",
+                    color: "#6B7280",
+                    margin: 0,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <ThaiText>
+                    Keyword-Search แบบเดิมให้ผลลัพธ์เป็นรายการไฟล์นับร้อย
+                    โดยไม่เกี่ยวกับความต้องการจริง
+                  </ThaiText>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Challenge 2 */}
-          <div style={{ padding: "14px 18px", background: "#FAFAFA", borderRadius: 14, border: "1px solid #F0F0F0" }}>
+          <div
+            style={{
+              padding: "14px 18px",
+              background: "#FAFAFA",
+              borderRadius: 14,
+              border: "1px solid #F0F0F0",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
               <ScatterIcon />
               <div>
-                <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 700, color: "#EF4444", marginBottom: 6 }}>
+                <div
+                  style={{
+                    fontSize: "var(--slide-card-heading)",
+                    fontWeight: 700,
+                    color: "#EF4444",
+                    marginBottom: 6,
+                  }}
+                >
                   <ThaiText>ข้อมูลกระจัดกระจาย</ThaiText>
                 </div>
-                <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
-                  <ThaiText>ข้อมูลสำคัญของโครงการถูกแยกส่วนและซ่อนอยู่ตามระบบต่าง ๆ เช่น SharePoint, ไดรฟ์, และอีเมล ซึ่งไม่สามารถให้ภาพรวมที่สมบูรณ์ได้</ThaiText>
+                <p
+                  style={{
+                    fontSize: "var(--slide-body)",
+                    color: "#6B7280",
+                    margin: 0,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <ThaiText>
+                    ข้อมูลสำคัญของโครงการถูกแยกส่วนและซ่อนอยู่ตามระบบต่าง ๆ เช่น
+                    SharePoint, ไดรฟ์, และอีเมล
+                    ซึ่งไม่สามารถให้ภาพรวมที่สมบูรณ์ได้
+                  </ThaiText>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Section divider */}
-          <div style={{ height: 1, background: "linear-gradient(90deg, transparent, #E5E7EB 10%, #E5E7EB 90%, transparent)", margin: "4px 0" }} />
+          <div
+            style={{
+              height: 1,
+              background:
+                "linear-gradient(90deg, transparent, #E5E7EB 10%, #E5E7EB 90%, transparent)",
+              margin: "4px 0",
+            }}
+          />
 
           {/* ผลกระทบทางธุรกิจ — header */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -423,14 +508,35 @@ export function Slide04() {
           </div>
 
           {/* Impact 1 */}
-          <div style={{ padding: "14px 18px", background: "#FAFAFA", borderRadius: 14, border: "1px solid #F0F0F0" }}>
+          <div
+            style={{
+              padding: "14px 18px",
+              background: "#FAFAFA",
+              borderRadius: 14,
+              border: "1px solid #F0F0F0",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
               <ClockIcon />
               <div>
-                <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 700, color: "#F59E0B", marginBottom: 6 }}>
+                <div
+                  style={{
+                    fontSize: "var(--slide-card-heading)",
+                    fontWeight: 700,
+                    color: "#F59E0B",
+                    marginBottom: 6,
+                  }}
+                >
                   <ThaiText>เวลาสูญเปล่า</ThaiText>
                 </div>
-                <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
+                <p
+                  style={{
+                    fontSize: "var(--slide-body)",
+                    color: "#6B7280",
+                    margin: 0,
+                    lineHeight: 1.6,
+                  }}
+                >
                   <ThaiText>เสียเวลาหลายชั่วโมงในการค้นหาข้อมูล</ThaiText>
                 </p>
               </div>
@@ -438,25 +544,61 @@ export function Slide04() {
           </div>
 
           {/* Impact 2 */}
-          <div style={{ padding: "14px 18px", background: "#FAFAFA", borderRadius: 14, border: "1px solid #F0F0F0" }}>
+          <div
+            style={{
+              padding: "14px 18px",
+              background: "#FAFAFA",
+              borderRadius: 14,
+              border: "1px solid #F0F0F0",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
               <AlertCircleIcon />
               <div>
-                <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 700, color: "#EF4444", marginBottom: 6 }}>
+                <div
+                  style={{
+                    fontSize: "var(--slide-card-heading)",
+                    fontWeight: 700,
+                    color: "#EF4444",
+                    marginBottom: 6,
+                  }}
+                >
                   <ThaiText>ความล่าช้า</ThaiText>
                 </div>
-                <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
-                  <ThaiText>เกิดความล่าช้าของโครงการ เสี่ยงที่จะเกิดข้อผิดพลาดซ้ำ</ThaiText>
+                <p
+                  style={{
+                    fontSize: "var(--slide-body)",
+                    color: "#6B7280",
+                    margin: 0,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <ThaiText>
+                    เกิดความล่าช้าของโครงการ เสี่ยงที่จะเกิดข้อผิดพลาดซ้ำ
+                  </ThaiText>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Impact 3 */}
-          <div style={{ padding: "14px 18px", background: "#FAFAFA", borderRadius: 14, border: "1px solid #F0F0F0" }}>
+          <div
+            style={{
+              padding: "14px 18px",
+              background: "#FAFAFA",
+              borderRadius: 14,
+              border: "1px solid #F0F0F0",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <CostIcon />
-              <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 700, color: "#F59E0B" }}>
+              <div
+                style={{
+                  fontSize: "var(--slide-card-heading)",
+                  fontWeight: 700,
+                  color: "#F59E0B",
+                }}
+              >
                 <ThaiText>ต้นทุนที่ซ่อนอยู่ขององค์กร</ThaiText>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
 import { EASE } from "../lib/motion.ts";
+import { useSlideNum } from "../context/SlideContext.tsx";
 
 interface SlideLabelProps {
   label: string;
@@ -8,6 +9,9 @@ interface SlideLabelProps {
 }
 
 export function SlideLabel({ label, style }: SlideLabelProps) {
+  const slideNum = useSlideNum();
+  const prefix = slideNum > 0 ? `${String(slideNum).padStart(2, "0")} — ` : "";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -12 }}
@@ -34,6 +38,7 @@ export function SlideLabel({ label, style }: SlideLabelProps) {
           fontWeight: 700,
         }}
       >
+        {prefix}
         {label}
       </span>
     </motion.div>
