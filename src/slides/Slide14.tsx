@@ -12,6 +12,7 @@ import {
   StorageIcon,
   WebhookIcon,
   IconTile,
+  ThaiText,
 } from "../components/index.ts";
 import { DISTANCE, DURATION, fadeInLeft, stagger } from "../lib/motion.ts";
 
@@ -30,7 +31,7 @@ const SERVICES: {
 }[] = [
   {
     name: "Frontend Application",
-    desc: "Real-time Chat Interface, Citation display, Document Upload",
+    desc: "หน้าจอแชทแบบเรียลไทม์ การแสดงผลแหล่งอ้างอิง และระบบอัปโหลดเอกสาร",
     tech: ["Next.js", "React", "Tailwind"],
     color: "#06B6D4",
     rgb: "6,182,212",
@@ -38,7 +39,7 @@ const SERVICES: {
   },
   {
     name: "Backend Orchestrator",
-    desc: "Session management, request routing, SSE progress streaming",
+    desc: "ระบบจัดการเซสชัน กำหนดเส้นทางคำขอ และสตรีมความคืบหน้าแบบ SSE",
     tech: ["NestJS", "TypeScript"],
     color: "#7C3AED",
     rgb: "124,58,237",
@@ -46,7 +47,7 @@ const SERVICES: {
   },
   {
     name: "AI Engine",
-    desc: "Multi-agent ReAct reasoning with HyDE query expansion and MCP tools",
+    desc: "การให้เหตุผลแบบ Multi-agent ReAct ผสานการขยายคำค้นด้วย HyDE และชุดเครื่องมือ MCP",
     tech: ["Python", "CrewAI"],
     color: "#EC4899",
     rgb: "236,72,153",
@@ -54,34 +55,34 @@ const SERVICES: {
   },
   {
     name: "Embedding Service",
-    desc: "Text-to-vector (BGE-M3), cosine similarity search, sole Qdrant manager",
+    desc: "แปลงข้อความเป็นเวกเตอร์หลากภาษาด้วย BGE-M3 และสืบค้นผ่าน Qdrant",
     tech: ["Python", "Qdrant"],
-    color: "#3B82F6",
-    rgb: "59,130,246",
+    color: "#F59E0B",
+    rgb: "245,158,11",
     Icon: EmbeddingIcon,
   },
   {
     name: "Data Ingestion Service",
-    desc: "ETL pipeline — Docling structural extraction, HybridChunker, RabbitMQ worker",
-    tech: ["Python", "RabbitMQ", "Docling"],
-    color: "#F59E0B",
-    rgb: "245,158,11",
+    desc: "จำแนกประเภทข้อมูล สกัดโครงสร้างด้วย Docling และจัดการแบ่งข้อมูลด้วย HybridChunker",
+    tech: ["Docling", "RabbitMQ"],
+    color: "#10B981",
+    rgb: "16,185,129",
     Icon: IngestionIcon,
   },
   {
     name: "File Storage Service",
-    desc: "Object storage intermediary (MinIO/S3), presigned URLs, event notifications",
-    tech: ["Python", "MinIO/S3"],
-    color: "#10B981",
-    rgb: "16,185,129",
+    desc: "ตัวกลางจัดเก็บไฟล์ด้วย MinIO/S3 และสร้าง Presigned URL เพื่อการเข้าถึง",
+    tech: ["MinIO/S3"],
+    color: "#3B82F6",
+    rgb: "59,130,246",
     Icon: StorageIcon,
   },
   {
     name: "SharePoint Webhook",
-    desc: "Listens for file-change triggers from SharePoint, commands ingestion via queue",
-    tech: ["Python", "Graph API"],
-    color: "#EF4444",
-    rgb: "239,68,68",
+    desc: "ดักจับเหตุการณ์การเปลี่ยนแปลงไฟล์เพื่อสั่งงานผ่านคิวข้อความ RabbitMQ",
+    tech: ["Graph API"],
+    color: "#6366F1",
+    rgb: "99,102,241",
     Icon: WebhookIcon,
   },
 ];
@@ -139,15 +140,8 @@ function ServiceRow({
         >
           {svc.name}
         </div>
-        <p
-          style={{
-            fontSize: "var(--slide-body)",
-            color: "#6B7280",
-            margin: 0,
-            lineHeight: 1.5,
-          }}
-        >
-          {svc.desc}
+        <p style={{ margin: 0, fontSize: 17, color: "#6B7280", lineHeight: 1.5, position: "relative", zIndex: 1, paddingRight: 20 }}>
+          <ThaiText>{svc.desc}</ThaiText>
         </p>
       </div>
 

@@ -4,6 +4,7 @@ import {
   SlideHeader,
   Pill,
   GradientText,
+  ThaiText,
 } from "../components/index.ts";
 import { fadeInUp, fadeIn, stagger, DURATION } from "../lib/motion.ts";
 
@@ -37,36 +38,36 @@ const ACHIEVEMENTS = [
   {
     Icon: PipelineIcon,
     title: "Robust Ingestion Pipeline",
-    desc: "HybridChunker + Docling delivering structure-aware extraction that significantly reduces context fragmentation",
+    desc: "ระบบ HybridChunker + Docling ช่วยให้การสกัดข้อมูลรักษาโครงสร้างดั้งเดิมไว้ได้ ช่วยลดการแตกกระจายของบริบทข้อมูลได้อย่างมาก",
     color: "#10B981",
     rgb: "16,185,129",
   },
   {
     Icon: ChartIcon,
     title: "Validated Performance",
-    desc: "Faithfulness 0.77, Task Completion 0.97, Tool Correctness 0.99 — outperforming naive RAG baselines",
+    desc: "ความเที่ยงตรง 0.77 ความสำเร็จของงาน 0.97 ความถูกต้องของเครื่องมือ 0.99 — มีประสิทธิภาพเหนือกว่า RAG พื้นฐาน",
     color: "#7C3AED",
     rgb: "124,58,237",
   },
   {
     Icon: GearIcon,
     title: "Production-Grade Architecture",
-    desc: "7 decoupled microservices with JWT auth, SSE streaming, RabbitMQ sync, and multilingual BGE-M3 embeddings",
+    desc: "สถาปัตยกรรม Microservices ทั้ง 7 ระบบพร้อมระบบยืนยันตัวตน JWT, การสตรีมแบบ SSE, ซิงก์ผ่าน RabbitMQ และรองรับหลายภาษาด้วย BGE-M3",
     color: "#3B82F6",
     rgb: "59,130,246",
   },
 ];
 
 const FUTURE_WORK = [
-  { title: "Neo4j Graph-Vector Hybrid Retrieval", desc: "Traverse explicit relational networks alongside semantic similarity, pushing enterprise knowledge discovery further.", color: "#8B5CF6", rgb: "139,92,246" },
-  { title: "Full Azure AD SSO Integration", desc: "Complete OIDC strategy via Passport-Azure-AD (architecturally designed, not yet deployed).", color: "#3B82F6", rgb: "59,130,246" },
-  { title: "AI Guardrails Layer", desc: "Prompt injection protection and inappropriate response filtering.", color: "#F59E0B", rgb: "245,158,11" },
-  { title: "Multi-channel Integration", desc: "LINE / Microsoft Teams conversational connectors.", color: "#10B981", rgb: "16,185,129" },
+  { title: "Neo4j Graph-Vector Hybrid Retrieval", desc: "เพิ่มการสืบค้นโครงข่ายความสัมพันธ์เพื่อใช้งานร่วมกับความคล้ายคลึงของความหมาย ยกระดับการค้นพบองค์ความรู้ภายในองค์กร", color: "#8B5CF6", rgb: "139,92,246" },
+  { title: "Full Azure AD SSO Integration", desc: "ทำระบบ Single Sign-On แบบ OIDC ผ่าน Passport-Azure-AD ให้สมบูรณ์ (ออกแบบสถาปัตยกรรมไว้แล้วรอการติดตั้ง)", color: "#3B82F6", rgb: "59,130,246" },
+  { title: "AI Guardrails Layer", desc: "ป้องกันการถูกโจมตีด้วย Prompt Injection และตัวกรองคัดกรองคำตอบที่ไม่เหมาะสม", color: "#F59E0B", rgb: "245,158,11" },
+  { title: "Multi-channel Integration", desc: "เชื่อมต่อกับแอปพลิเคชันสนทนา เช่น LINE หรือ Microsoft Teams", color: "#10B981", rgb: "16,185,129" },
 ];
 
 const LIMITATIONS = [
-  "Multi-agent ReAct increases time-to-first-token",
-  "Multi-agent planning raises per-query token cost",
+  "กระบวนการ Multi-agent ReAct ทำให้ได้โทเคนแรกช้าลง (Time-to-first-token)",
+  "การวางแผนแบบ Multi-agent เพิ่มต้นทุนการใช้โทเคนต่อหนึ่งคำถาม",
 ];
 
 export function Slide23() {
@@ -132,11 +133,11 @@ export function Slide23() {
 
               {/* Text */}
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 800, color: "#111827", marginBottom: 6 }}>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "#111827", marginBottom: 6 }}>
                   {a.title}
                 </div>
-                <p style={{ margin: 0, fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>
-                  {a.desc}
+                <p style={{ margin: 0, fontSize: 18, color: "#6B7280", lineHeight: 1.6 }}>
+                  <ThaiText>{a.desc}</ThaiText>
                 </p>
               </div>
             </motion.div>
@@ -153,7 +154,7 @@ export function Slide23() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-              <Pill color="#F59E0B" rgb="245,158,11" fontSize={11} padding="5px 14px">
+              <Pill color="#F59E0B" rgb="245,158,11" fontSize={15} padding="5px 14px">
                 Known Limitations
               </Pill>
             </div>
@@ -165,11 +166,11 @@ export function Slide23() {
                     height: 6,
                     borderRadius: "50%",
                     background: "#F59E0B",
-                    marginTop: 6,
+                    marginTop: 8,
                     flexShrink: 0,
                   }} />
-                  <div style={{ fontSize: 12, color: "#78716C", lineHeight: 1.6, fontWeight: 500 }}>
-                    {lim}
+                  <div style={{ fontSize: 18, color: "#78716C", lineHeight: 1.6, fontWeight: 500 }}>
+                    <ThaiText>{lim}</ThaiText>
                   </div>
                 </div>
               ))}
@@ -191,7 +192,7 @@ export function Slide23() {
             boxShadow: "0 10px 40px rgba(124,58,237,0.05)",
           }}
         >
-          <h3 style={{ margin: "0 0 24px 0", fontSize: 22, fontWeight: 800 }}>
+          <h3 style={{ margin: "0 0 24px 0", fontSize: 30, fontWeight: 800 }}>
             <GradientText from="#7C3AED" to="#EC4899">What's Next</GradientText>
           </h3>
 
@@ -208,15 +209,15 @@ export function Slide23() {
                   borderRadius: "50%",
                   background: fw.color,
                   flexShrink: 0,
-                  marginTop: 5,
+                  marginTop: 7,
                   boxShadow: `0 0 10px rgba(${fw.rgb}, 0.4)`,
                 }} />
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#111827", marginBottom: 4 }}>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: "#111827", marginBottom: 4 }}>
                     {fw.title}
                   </div>
-                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>
-                    {fw.desc}
+                  <div style={{ fontSize: 18, color: "#6B7280", lineHeight: 1.6 }}>
+                    <ThaiText>{fw.desc}</ThaiText>
                   </div>
                 </div>
               </motion.div>
@@ -233,7 +234,7 @@ export function Slide23() {
           marginTop: "auto",
           paddingTop: 20,
           textAlign: "center",
-          fontSize: 11,
+          fontSize: 14,
           color: "#9CA3AF",
           fontWeight: 600,
           letterSpacing: "0.05em",

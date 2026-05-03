@@ -2,27 +2,28 @@ import { motion } from "framer-motion";
 import {
   SlideShell,
   SlideHeader,
+  ThaiText,
 } from "../components/index.ts";
 import { fadeInUp, DURATION } from "../lib/motion.ts";
 
 const SEM1 = [
-  { wk: "1–2", label: "Literature review & problem framing" },
-  { wk: "3–4", label: "Requirements + user stories" },
-  { wk: "5–7", label: "System architecture + tool selection" },
-  { wk: "8–10", label: "Web app prototype (NestJS + Vector)" },
-  { wk: "11–12", label: "Data Ingestion service (Docling)" },
-  { wk: "13–14", label: "Full end-to-end pipeline integration" },
-  { wk: "15–16", label: "Final proposal + documentation" },
+  { wk: "1–2", label: " Research และกำหนดกรอบปัญหา" },
+  { wk: "3–4", label: "เก็บข้อกำหนดระบบ + Use Case" },
+  { wk: "5–7", label: "ออกแบบสถาปัตยกรรมระบบ + เลือกเครื่องมือ" },
+  { wk: "8–10", label: "สร้างโปรโตไทป์ Web App (NestJS + Vector)" },
+  { wk: "11–12", label: "พัฒนาระบบดึงและสกัดข้อมูล (Docling)" },
+  { wk: "13–14", label: "เชื่อมต่อระบบทั้งหมดเข้าด้วยกัน" },
+  { wk: "15–16", label: "นำเสนอโครงงานและจัดทำเอกสาร" },
 ];
 
 const SEM2 = [
-  { wk: "17–18", label: "Pipeline enhancement + metrics" },
-  { wk: "19–20", label: "GraphRAG bottleneck → HyDE pivot" },
-  { wk: "21–23", label: "Citations, UI/UX polish, SSO deferred" },
-  { wk: "24–26", label: "UAT preparation + JWT finalization" },
-  { wk: "27–28", label: "UAT + 50+ query evaluation" },
-  { wk: "29–30", label: "Bug fixes + performance stabilization" },
-  { wk: "31–32", label: "Final report + demo" },
+  { wk: "17–18", label: "พัฒนาประสิทธิภาพไปป์ไลน์ + วัดผล" },
+  { wk: "19–20", label: "พบปัญหาคอขวด GraphRAG → เปลี่ยนมาใช้ HyDE" },
+  { wk: "21–23", label: "ทำระบบอ้างอิง, ขัดเกลา UI/UX, เลื่อนแผน SSO" },
+  { wk: "24–26", label: "เตรียมการทดสอบ UAT + วางระบบ JWT" },
+  { wk: "27–28", label: "การทดสอบ UAT + ประเมินผลกว่า 50 คำถาม" },
+  { wk: "29–30", label: "แก้ไขบั๊ก + ทำให้ระบบเสถียรยิ่งขึ้น" },
+  { wk: "31–32", label: "รายงานผลฉบับสมบูรณ์ + นำเสนอเดโม่" },
 ];
 
 const COLUMNS = ["12.5%", "37.5%", "62.5%", "87.5%"];
@@ -63,8 +64,8 @@ function TimelineDot({ item, top, left, delay }: { item: typeof SEM1[0] & { pivo
         <div style={{ marginTop: 14, fontSize: 12, fontWeight: 800, color: "#6B7280", marginBottom: 6 }}>
           WK {item.wk}
         </div>
-        <div style={{ fontSize: 11, color: "#9CA3AF", textAlign: "center", lineHeight: 1.4, padding: "0 8px" }}>
-          {item.label}
+        <div style={{ fontSize: 15, color: "#9CA3AF", textAlign: "center", lineHeight: 1.4, padding: "0 8px" }}>
+          <ThaiText>{item.label}</ThaiText>
         </div>
       </div>
     </motion.div>

@@ -14,6 +14,7 @@ import {
   ReactAgentIcon,
   ToolIcon,
   AnswerIcon,
+  ThaiText,
 } from "../components/index.ts";
 import {
   DISTANCE,
@@ -635,12 +636,12 @@ export function Slide17() {
             {/* bullets */}
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               {[
-                "Interleaves Thought → Action → Observation steps",
-                "Re-ranks retrieved chunks at each reasoning pass",
-                "Terminates when confidence threshold is satisfied",
+                "สลับกระบวนการระหว่าง ความคิด → การกระทำ → การสังเกต",
+                "จัดลำดับข้อมูลที่สืบค้นมาใหม่ (Re-rank) ในทุกรอบการให้เหตุผล",
+                "สิ้นสุดกระบวนการเมื่อได้ผลลัพธ์ถึงเกณฑ์ความมั่นใจที่ตั้งไว้",
               ].map((pt) => (
                 <DotPoint key={pt} gradient={["#EC4899", "#7C3AED"]}>
-                  {pt}
+                  <ThaiText>{pt}</ThaiText>
                 </DotPoint>
               ))}
             </div>
@@ -675,12 +676,12 @@ export function Slide17() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               {[
-                "Standardizes integration of external capabilities via protocol",
-                "Enables selective reading of granular structural metadata",
-                "Equips the agent with specialized document search",
+                "สร้างมาตรฐานการเชื่อมต่อกับเครื่องมือภายนอกผ่านโปรโตคอล",
+                "ช่วยให้ระบบสามารถเลือกอ่านข้อมูลเชิงโครงสร้างเชิงลึกได้",
+                "เสริมความสามารถให้ AI Agent ด้วยเครื่องมือค้นหาเอกสารเฉพาะทาง",
               ].map((pt) => (
                 <DotPoint key={pt} gradient={["#F59E0B", "#F97316"]}>
-                  {pt}
+                  <ThaiText>{pt}</ThaiText>
                 </DotPoint>
               ))}
             </div>
@@ -692,7 +693,7 @@ export function Slide17() {
               [
                 { val: "0.97", label: "Answer Relevancy", sub: "RAGAS", grad: ["#10B981", "#059669"] as [string, string], rgb: "16,185,129" },
                 { val: "0.99", label: "Context Precision", sub: "RAGAS", grad: ["#3B82F6", "#7C3AED"] as [string, string], rgb: "59,130,246" },
-                { val: "+20.6%", label: "vs Baseline", sub: "improvement", grad: ["#F59E0B", "#F97316"] as [string, string], rgb: "245,158,11" },
+                { val: "+20.6%", label: "vs Baseline", sub: "ดีขึ้นจากพื้นฐาน", grad: ["#F59E0B", "#F97316"] as [string, string], rgb: "245,158,11" },
               ] as const
             ).map((s, i) => (
               <motion.div
@@ -716,7 +717,7 @@ export function Slide17() {
                   {s.val}
                 </GradientText>
                 <div style={{ fontSize: 9.5, fontWeight: 700, color: "#374151", lineHeight: 1.2 }}>{s.label}</div>
-                <div style={{ fontSize: 8, color: "#9CA3AF" }}>{s.sub}</div>
+                <div style={{ fontSize: 8, color: "#9CA3AF" }}><ThaiText>{s.sub}</ThaiText></div>
               </motion.div>
             ))}
           </div>

@@ -6,6 +6,7 @@ import {
   Pill,
   SlideHeader,
   SlideShell,
+  ThaiText,
 } from "../components/index.ts";
 import { DISTANCE, DURATION, fadeInUp, scaleIn, stagger } from "../lib/motion.ts";
 
@@ -218,7 +219,7 @@ const CONCEPTS = [
     pillRgb: "245,158,11",
     heading: "The Problem",
     headingColor: "#F59E0B",
-    body: "User queries sit in low-density semantic space. Enterprise documents sit in high-density space. This mismatch causes poor cosine similarity at retrieval time — the wrong chunks are returned.",
+    body: "คำถามของผู้ใช้มักจะสั้นและขาดบริบท (Low-density) ต่างจากเอกสารองค์กรที่มีข้อมูลหนาแน่น ความแตกต่างนี้ทำให้การสืบค้นแบบเดิมมีค่าความคล้ายคลึงต่ำ ระบบจึงดึงข้อมูลที่ไม่ตรงกับความต้องการออกมา",
     grad: ["#F59E0B", "#EF4444"] as [string, string],
     rgb: "245,158,11",
     Diagram: StandardRagDiagram,
@@ -229,7 +230,7 @@ const CONCEPTS = [
     pillRgb: "124,58,237",
     heading: "The Solution",
     headingColor: "#7C3AED",
-    body: "Instead of vectorizing the sparse query, an LLM synthesizes an \"ideal hypothetical answer.\" That response embeds directly inside the document cluster — maximizing cosine similarity with the correct chunks.",
+    body: "แทนที่จะใช้คำถามสั้น ๆ ไปค้นหาตรง ๆ ระบบจะให้ AI สร้าง 'คำตอบสมมติที่สมบูรณ์แบบ' ขึ้นมาก่อน แล้วจึงนำคำตอบนั้นไปสืบค้นข้อมูล ซึ่งจะตรงกับกลุ่มเอกสารที่เกี่ยวข้องมากกว่า ทำให้ดึงข้อมูลได้แม่นยำขึ้น",
     grad: ["#7C3AED", "#10B981"] as [string, string],
     rgb: "124,58,237",
     Diagram: HydeDiagram,
@@ -240,7 +241,7 @@ const STATS = [
   {
     big: "+20.6%",
     label: "Performance vs baseline",
-    sub: "vs standard vector retrieval",
+    sub: "เทียบกับการสืบค้นด้วยเวกเตอร์แบบปกติ",
     color: "#10B981",
     rgb: "16,185,129",
     grad: ["#10B981", "#059669"] as [string, string],
@@ -249,7 +250,7 @@ const STATS = [
   {
     big: "0.77",
     label: "Faithfulness score",
-    sub: "vs 0.55–0.65 naive RAG baseline",
+    sub: "เทียบกับระดับ 0.55–0.65 ของ RAG ทั่วไป",
     color: "#7C3AED",
     rgb: "124,58,237",
     grad: ["#7C3AED", "#A855F7"] as [string, string],
@@ -258,7 +259,7 @@ const STATS = [
   {
     big: "GraphRAG",
     label: "Rejected",
-    sub: "142 s sync latency · HyDE: better precision + lower cost",
+    sub: "ความล่าช้าในการซิงก์ 142 วินาที · HyDE ให้ความแม่นยำสูงกว่าและต้นทุนต่ำกว่า",
     color: "#F59E0B",
     rgb: "245,158,11",
     grad: ["#F59E0B", "#F97316"] as [string, string],
@@ -316,7 +317,7 @@ function ConceptCard({
           </div>
         </div>
         <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
-          {concept.body}
+          <ThaiText>{concept.body}</ThaiText>
         </p>
       </div>
 
@@ -413,7 +414,7 @@ export function Slide16() {
                   {stat.label}
                 </div>
                 <div style={{ fontSize: "var(--slide-body)", color: "#9CA3AF", lineHeight: 1.5 }}>
-                  {stat.sub}
+                  <ThaiText>{stat.sub}</ThaiText>
                 </div>
               </div>
             </motion.div>

@@ -7,6 +7,7 @@ import {
   Pill,
   SlideHeader,
   SlideShell,
+  ThaiText,
 } from "../components/index.ts";
 import { DISTANCE, DURATION, fadeInLeft, fadeInRight, stagger } from "../lib/motion.ts";
 
@@ -19,7 +20,7 @@ const STEPS = [
   {
     num: "01",
     title: "Structural Intersection",
-    body: "Detects semantic boundaries and structural markers — headers, subheaders. Chunks are divided at natural breakpoints, never mid-paragraph.",
+    body: "ตรวจจับขอบเขตของความหมายและโครงสร้าง เช่น หัวข้อหลักและหัวข้อย่อย เพื่อแบ่งข้อมูล (Chunks) ตามจุดแบ่งที่เหมาะสมโดยไม่ตัดกลางย่อหน้า",
     color: "#F59E0B",
     rgb: "245,158,11",
     grad: ["#F59E0B", "#F97316"] as [string, string],
@@ -27,7 +28,7 @@ const STEPS = [
   {
     num: "02",
     title: "Structural Serialization",
-    body: "Document headers extracted and serialized as contextual breadcrumbs (e.g. Policy › IT › Security) prepended to every chunk.",
+    body: "สกัดหัวข้อเอกสารและเรียงร้อยเป็นเส้นทางบริบท (Breadcrumbs) (เช่น นโยบาย › ไอที › ความปลอดภัย) นำไปปะหน้าในทุกชุดข้อมูลย่อย",
     color: "#7C3AED",
     rgb: "124,58,237",
     grad: ["#7C3AED", "#A855F7"] as [string, string],
@@ -35,7 +36,7 @@ const STEPS = [
   {
     num: "03",
     title: "Token-Aware Merging",
-    body: "Chunks capped at 512 tokens using an embedding-aligned tokenizer. Smaller related peers are merged; hierarchical breadcrumbs prepended before vectorization.",
+    body: "จำกัดขนาดข้อมูลที่ 512 โทเคน ข้อมูลย่อยที่เกี่ยวข้องกันจะถูกรวมเข้าด้วยกัน โดยมีเส้นทางบริบทปะหน้าก่อนแปลงเป็นเวกเตอร์",
     color: "#10B981",
     rgb: "16,185,129",
     grad: ["#10B981", "#059669"] as [string, string],
@@ -292,7 +293,9 @@ export function Slide15() {
                 </IconBadge>
                 <div style={{ flex: 1, minWidth: 0, position: "relative" }}>
                   <div style={{ fontSize: "var(--slide-card-heading)", fontWeight: 800, color: "#0A0A0A", lineHeight: 1.2, marginBottom: 6 }}>{step.title}</div>
-                  <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>{step.body}</p>
+                  <p style={{ fontSize: "var(--slide-body)", color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
+                    <ThaiText>{step.body}</ThaiText>
+                  </p>
                 </div>
                 <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 3, borderRadius: "16px 0 0 16px", background: `linear-gradient(180deg,${step.grad[0]},${step.grad[1]})` }} />
               </motion.div>

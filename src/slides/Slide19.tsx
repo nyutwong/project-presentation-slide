@@ -5,6 +5,7 @@ import {
   BigGhostNumber,
   GradientText,
   Callout,
+  ThaiText,
 } from "../components/index.ts";
 import { cardRise, fadeInUp, stagger, DURATION } from "../lib/motion.ts";
 
@@ -123,7 +124,7 @@ const METRICS = [
     label: "Faithfulness",
     score: "0.77",
     evals: "231",
-    desc: "Answers derived entirely from retrieved context",
+    desc: "คำตอบมาจากเนื้อหาที่สืบค้นได้ทั้งหมดโดยไม่อ้างอิงข้อมูลภายนอก",
     color: "#7C3AED",
     rgb: "124,58,237",
     grad: ["#7C3AED", "#A855F7"] as [string, string],
@@ -132,7 +133,7 @@ const METRICS = [
     label: "Task Completion",
     score: "0.97",
     evals: "231",
-    desc: "Agent successfully fulfilled user's requested intent",
+    desc: "Agent ทำงานสำเร็จตามความตั้งใจที่ผู้ใช้ระบุ",
     color: "#10B981",
     rgb: "16,185,129",
     grad: ["#10B981", "#34D399"] as [string, string],
@@ -141,7 +142,7 @@ const METRICS = [
     label: "Tool Correctness",
     score: "0.99",
     evals: "231",
-    desc: "Autonomous agent invoked the correct MCP tools",
+    desc: "Agent อิสระเรียกใช้เครื่องมือ MCP ได้อย่างถูกต้องแม่นยำ",
     color: "#3B82F6",
     rgb: "59,130,246",
     grad: ["#3B82F6", "#06B6D4"] as [string, string],
@@ -150,7 +151,7 @@ const METRICS = [
     label: "Factual Correctness",
     score: "0.78",
     evals: "231",
-    desc: "Claim-level F1 against ground-truth reference",
+    desc: "วัดความถูกต้องของข้อเท็จจริงเทียบกับข้อมูลอ้างอิงด้วยค่า F1",
     color: "#EC4899",
     rgb: "236,72,153",
     grad: ["#EC4899", "#F43F5E"] as [string, string],
@@ -276,7 +277,7 @@ export function Slide19() {
                   lineHeight: 1.5,
                   margin: 0
                 }}>
-                  {m.desc}
+                  <ThaiText>{m.desc}</ThaiText>
                 </p>
 
                 <div style={{ marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 48 }}>
@@ -313,7 +314,9 @@ export function Slide19() {
               style={{ height: "100%" }}
             >
               <p style={{ margin: 0, fontSize: "var(--slide-body)", color: "#374151", lineHeight: 1.6 }}>
-                Standard RAG systems typically score <strong style={{ color: "#7C3AED" }}>0.55–0.65 Faithfulness</strong> due to naive fixed-window chunking. AiQ's HybridChunker + HyDE pipeline achieves <strong style={{ color: "#7C3AED" }}>0.77</strong> — a significant improvement for enterprise deployment where information reliability is critical.
+                <ThaiText>
+                  ระบบ RAG ทั่วไปมักได้คะแนน <strong style={{ color: "#7C3AED" }}>Faithfulness ที่ 0.55–0.65</strong> เนื่องจากการแบ่งข้อมูลแบบคงที่ (Fixed-window) แต่ไปป์ไลน์ HybridChunker + HyDE ของ AiQ สามารถทำคะแนนได้ถึง <strong style={{ color: "#7C3AED" }}>0.77</strong> ซึ่งถือเป็นการพัฒนาครั้งสำคัญสำหรับการใช้งานระดับองค์กรที่ความน่าเชื่อถือของข้อมูลเป็นสิ่งสำคัญสูงสุด
+                </ThaiText>
               </p>
             </Callout>
           </motion.div>
@@ -331,7 +334,9 @@ export function Slide19() {
               style={{ height: "100%" }}
             >
               <p style={{ margin: 0, fontSize: "var(--slide-body)", color: "#374151", lineHeight: 1.6 }}>
-                The exceptional Tool Correctness <strong style={{ color: "#10B981" }}>(0.99)</strong> and Task Completion <strong style={{ color: "#10B981" }}>(0.97)</strong> confirm high reliability in the CrewAI reasoning loop and MCP integration. The Faithfulness score of 0.77 has room for improvement via prompt engineering refinement.
+                <ThaiText>
+                  คะแนน Tool Correctness <strong style={{ color: "#10B981" }}>(0.99)</strong> และ Task Completion <strong style={{ color: "#10B981" }}>(0.97)</strong> ที่โดดเด่น ช่วยยืนยันความน่าเชื่อถือระดับสูงของกระบวนการให้เหตุผลแบบ CrewAI และการเชื่อมต่อผ่าน MCP ส่วนคะแนน Faithfulness ที่ 0.77 นั้นยังมีพื้นที่ให้พัฒนาต่อยอดได้ด้วยการปรับปรุง Prompt Engineering
+                </ThaiText>
               </p>
             </Callout>
           </motion.div>
