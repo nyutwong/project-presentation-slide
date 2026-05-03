@@ -152,21 +152,23 @@ export function AnimatedBeam({
             setArrowInfo({ x: mx, y: my, angle });
           }
         } else {
-          const controlY = startY - curvature;
-          const controlX = (startX + endX) / 2;
-          setPathD(
-            `M ${startX},${startY} Q ${controlX},${controlY} ${endX},${endY}`,
-          );
-
-          if (showArrow) {
-            if (curvature === 0) {
-              // Straight line — use simple geometric midpoint
+          if (curvature === 0) {
+            setPathD(`M ${startX},${startY} L ${endX},${endY}`);
+            if (showArrow) {
               const mx = (startX + endX) / 2;
               const my = (startY + endY) / 2;
               const angle =
                 Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);
               setArrowInfo({ x: mx, y: my, angle });
-            } else {
+            }
+          } else {
+            const controlY = startY - curvature;
+            const controlX = (startX + endX) / 2;
+            setPathD(
+              `M ${startX},${startY} Q ${controlX},${controlY} ${endX},${endY}`,
+            );
+
+            if (showArrow) {
               // Quadratic bezier midpoint at t=0.5
               const t = 0.5;
               const mt = 1 - t;
