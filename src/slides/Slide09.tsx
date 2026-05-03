@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE, slideHeader } from "../lib/motion.ts";
+import {
+  Pill,
+  SlideHeader,
+  SlideShell,
+  ThaiText,
+} from "../components/index.ts";
+import { EASE } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -200, right: -100, size: 640, color: "124,58,237", opacity: 0.1 },
@@ -98,9 +99,7 @@ function IconGraph({ delay }: { delay: number }) {
   );
   return (
     <motion.svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-      {/* Center node */}
       {p("M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0", 1.8, 0)}
-      {/* Spokes */}
       {p("M12 9.5V4", 1.1, 0.4, 0.65)}
       {p("M14.5 10.5L19.5 5.5", 1.1, 0.5, 0.65)}
       {p("M14.5 12H20", 1.1, 0.6, 0.65)}
@@ -109,7 +108,6 @@ function IconGraph({ delay }: { delay: number }) {
       {p("M9.5 13.5L4.5 18.5", 1.1, 0.9, 0.65)}
       {p("M9.5 12H4", 1.1, 1.0, 0.65)}
       {p("M9.5 10.5L4.5 5.5", 1.1, 1.1, 0.65)}
-      {/* Outer dots */}
       {dot(12, 3, 1.2)}
       {dot(20.5, 4.5, 1.3)}
       {dot(21, 12, 1.4)}
@@ -211,47 +209,14 @@ const CARDS: {
 export function Slide09() {
   return (
     <SlideShell glows={GLOWS}>
-      {/* ── Header ── */}
-      <motion.div
-        {...slideHeader()}
-        style={{
-          paddingBottom: 22,
-          borderBottom: "1px solid #F0F0F0",
-          marginBottom: 24,
-        }}
-      >
-        <SlideLabel label="Aingo" style={{ marginBottom: 14 }} />
-        <h1
-          style={{
-            fontSize: 72,
-            fontWeight: 900,
-            letterSpacing: "-2.5px",
-            lineHeight: 1.0,
-            margin: "0 0 16px",
-            color: "#0A0A0A",
-            userSelect: "none",
-            paddingTop: 4,
-          }}
-        >
-          AiQ&apos;s <GradientText>Approach.</GradientText>
-        </h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <AccentLine delay={0.4} width={80} />
-          <span
-            style={{
-              fontSize: 13,
-              color: "#9CA3AF",
-              fontWeight: 500,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            <ThaiText>
-              โฟกัสการแก้ปัญหาด้วย Ingestion · Preparation Pipeline
-            </ThaiText>
-          </span>
-        </div>
-      </motion.div>
+      <SlideHeader
+        label="Aingo"
+        title="AiQ's"
+        highlight="Approach."
+        tagline="โฟกัสการแก้ปัญหาด้วย Ingestion · Preparation Pipeline"
+        thaiTagline
+        marginBottom={24}
+      />
 
       {/* ── 3 Cards ── */}
       <div
@@ -359,21 +324,15 @@ export function Slide09() {
                 textAlign: "center",
               }}
             >
-              {/* Gap badge */}
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: card.gapColor,
-                  background: `rgba(${card.gapRgb}, 0.1)`,
-                  border: `1px solid rgba(${card.gapRgb}, 0.25)`,
-                  padding: "3px 10px",
-                  borderRadius: 99,
-                  letterSpacing: "0.05em",
-                }}
+              <Pill
+                color={card.gapColor}
+                rgb={card.gapRgb}
+                fontSize={11}
+                letterSpacing="0.05em"
+                uppercase={false}
               >
                 {card.gap}
-              </span>
+              </Pill>
 
               <div
                 style={{

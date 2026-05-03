@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { ThaiText } from "../components/ThaiText.tsx";
-import { cardRise, slideHeader, stagger } from "../lib/motion.ts";
+import {
+  BigGhostNumber,
+  IconTile,
+  Pill,
+  SlideHeader,
+  SlideShell,
+  ThaiText,
+} from "../components/index.ts";
+import { cardRise, stagger } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -280, right: -140, size: 760, color: "124,58,237", opacity: 0.11 },
@@ -18,8 +21,6 @@ const LEVELS = [
     accent: "#EF4444",
     accentRgb: "239,68,68",
     status: "Legacy",
-    statusBg: "rgba(239,68,68,0.08)",
-    statusBorder: "rgba(239,68,68,0.2)",
     desc: "ปัญหา: ใช้ Keyword ค้นหาเอกสาร ทำให้ไม่รู้ intent จริงๆ ของผู้ใช้ ได้ผลเป็นเอกสารมากมาย แต่ไม่ตรงกับที่หา",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -53,7 +54,6 @@ const LEVELS = [
         />
       </svg>
     ),
-    imgColor: "239,68,68",
   },
   {
     num: "02",
@@ -61,8 +61,6 @@ const LEVELS = [
     accent: "#F59E0B",
     accentRgb: "245,158,11",
     status: "Partial",
-    statusBg: "rgba(245,158,11,0.08)",
-    statusBorder: "rgba(245,158,11,0.2)",
     desc: "ปัญหา: ตอบคำถามด้วย Natural-Language ได้ แต่ยังขาด Context/Meta ที่ดีของข้อมูล",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -92,7 +90,6 @@ const LEVELS = [
         />
       </svg>
     ),
-    imgColor: "245,158,11",
   },
   {
     num: "03",
@@ -100,8 +97,6 @@ const LEVELS = [
     accent: "#7C3AED",
     accentRgb: "124,58,237",
     status: "Aingo",
-    statusBg: "rgba(124,58,237,0.08)",
-    statusBorder: "rgba(124,58,237,0.25)",
     desc: "อัปเกรด Data Pipeline ทำให้ได้ Data ที่มีความเที่ยงตรง มี Agent ที่ฉลาดสำหรับการตอบคำถาม",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -121,52 +116,19 @@ const LEVELS = [
         <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="url(#zap-g)" />
       </svg>
     ),
-    imgColor: "124,58,237",
   },
 ];
 
 export function Slide06() {
   return (
     <SlideShell glows={GLOWS}>
-      {/* ── Header ── */}
-      <motion.div
-        {...slideHeader()}
-        style={{
-          paddingBottom: 22,
-          borderBottom: "1px solid #F0F0F0",
-          marginBottom: 32,
-        }}
-      >
-        <SlideLabel label="Aingo" style={{ marginBottom: 14 }} />
-        <h1
-          style={{
-            fontSize: 72,
-            fontWeight: 900,
-            letterSpacing: "-2.5px",
-            lineHeight: 1.0,
-            margin: "0 0 16px",
-            color: "#0A0A0A",
-            userSelect: "none",
-            paddingTop: 4,
-          }}
-        >
-          System <GradientText>Evolution.</GradientText>
-        </h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <AccentLine delay={0.4} width={80} />
-          <span
-            style={{
-              fontSize: 13,
-              color: "#9CA3AF",
-              fontWeight: 500,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            The Core Technical Challenge
-          </span>
-        </div>
-      </motion.div>
+      <SlideHeader
+        label="Aingo"
+        title="System"
+        highlight="Evolution."
+        tagline="The Core Technical Challenge"
+        marginBottom={32}
+      />
 
       {/* ── 3 horizontal cards ── */}
       <div
@@ -193,7 +155,7 @@ export function Slide06() {
               boxShadow: `0 2px 24px rgba(${lvl.accentRgb},0.06)`,
             }}
           >
-            {/* Image placeholder area */}
+            {/* Image area */}
             <div
               style={{
                 flex: "0 0 62%",
@@ -202,7 +164,6 @@ export function Slide06() {
                 overflow: "hidden",
               }}
             >
-              {/* dot grid */}
               <div
                 style={{
                   position: "absolute",
@@ -211,7 +172,6 @@ export function Slide06() {
                   backgroundSize: "22px 22px",
                 }}
               />
-              {/* gradient wash */}
               <div
                 style={{
                   position: "absolute",
@@ -219,23 +179,20 @@ export function Slide06() {
                   background: `linear-gradient(160deg, rgba(${lvl.accentRgb},0.1) 0%, transparent 65%)`,
                 }}
               />
-              {/* level number watermark */}
-              <span
+              {/* Watermark number */}
+              <BigGhostNumber
+                rgb={lvl.accentRgb}
+                size={96}
+                opacity={0.07}
                 style={{
                   position: "absolute",
                   bottom: -8,
                   right: 12,
-                  fontSize: 96,
-                  fontWeight: 900,
                   letterSpacing: "-6px",
-                  color: `rgba(${lvl.accentRgb},0.07)`,
-                  lineHeight: 1,
-                  userSelect: "none",
                 }}
               >
                 {lvl.num}
-              </span>
-              {/* centered icon */}
+              </BigGhostNumber>
               <div
                 style={{
                   position: "absolute",
@@ -247,21 +204,18 @@ export function Slide06() {
                   gap: 10,
                 }}
               >
-                <div
+                <IconTile
+                  size={60}
+                  radius={16}
+                  rgb={lvl.accentRgb}
+                  bgOpacity={0.1}
+                  borderOpacity={0.22}
                   style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 16,
-                    background: `rgba(${lvl.accentRgb},0.1)`,
-                    border: `1px solid rgba(${lvl.accentRgb},0.22)`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
                     boxShadow: `0 4px 20px rgba(${lvl.accentRgb},0.15)`,
                   }}
                 >
                   {lvl.icon}
-                </div>
+                </IconTile>
                 <span
                   style={{
                     fontSize: 10,
@@ -276,7 +230,7 @@ export function Slide06() {
               </div>
             </div>
 
-            {/* Content area */}
+            {/* Content */}
             <div
               style={{
                 flex: 1,
@@ -287,42 +241,18 @@ export function Slide06() {
                 minHeight: 0,
               }}
             >
-              {/* Status pill */}
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignSelf: "flex-start",
-                  alignItems: "center",
-                  gap: 6,
-                  padding: "3px 10px",
-                  borderRadius: 99,
-                  background: lvl.statusBg,
-                  border: `1px solid ${lvl.statusBorder}`,
-                }}
+              <Pill
+                color={lvl.accent}
+                rgb={lvl.accentRgb}
+                fontSize={10}
+                letterSpacing="0.1em"
+                dot
+                dotGlow
+                style={{ alignSelf: "flex-start" }}
               >
-                <div
-                  style={{
-                    width: 5,
-                    height: 5,
-                    borderRadius: "50%",
-                    background: lvl.accent,
-                    boxShadow: `0 0 5px ${lvl.accent}`,
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 700,
-                    color: lvl.accent,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {lvl.status}
-                </span>
-              </div>
+                {lvl.status}
+              </Pill>
 
-              {/* Title */}
               <div
                 style={{
                   fontSize: "var(--slide-card-heading)",
@@ -335,7 +265,6 @@ export function Slide06() {
                 {lvl.label}
               </div>
 
-              {/* Accent rule */}
               <div
                 style={{
                   width: 32,
@@ -345,7 +274,6 @@ export function Slide06() {
                 }}
               />
 
-              {/* Description */}
               <p
                 style={{
                   fontSize: "var(--slide-body)",
@@ -359,7 +287,6 @@ export function Slide06() {
               </p>
             </div>
 
-            {/* Bottom accent line */}
             <div
               style={{
                 height: 3,

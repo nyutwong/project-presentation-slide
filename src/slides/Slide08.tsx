@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { ThaiText } from "../components/ThaiText.tsx";
+import {
+  IconBadge,
+  Pill,
+  SectionTitle,
+  SlideHeader,
+  SlideShell,
+  ThaiText,
+  VerticalDivider,
+} from "../components/index.ts";
 import {
   DISTANCE,
   DURATION,
   fadeInLeft,
   fadeInRight,
   fadeInUp,
-  slideHeader,
   stagger,
 } from "../lib/motion.ts";
 
@@ -22,45 +25,13 @@ const GLOWS = [
 export function Slide08() {
   return (
     <SlideShell glows={GLOWS}>
-      {/* ── Header ── */}
-      <motion.div
-        {...slideHeader()}
-        style={{
-          paddingBottom: 22,
-          borderBottom: "1px solid #F0F0F0",
-          marginBottom: 28,
-        }}
-      >
-        <SlideLabel label="Aingo" style={{ marginBottom: 14 }} />
-        <h1
-          style={{
-            fontSize: 72,
-            fontWeight: 900,
-            letterSpacing: "-2.5px",
-            lineHeight: 1.0,
-            margin: "0 0 16px",
-            color: "#0A0A0A",
-            userSelect: "none",
-            paddingTop: 4,
-          }}
-        >
-          Objective <GradientText>&amp; Scope.</GradientText>
-        </h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <AccentLine delay={0.4} width={80} />
-          <span
-            style={{
-              fontSize: 13,
-              color: "#9CA3AF",
-              fontWeight: 500,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            What we aim to build and where we draw the line
-          </span>
-        </div>
-      </motion.div>
+      <SlideHeader
+        label="Aingo"
+        title="Objective"
+        highlight="& Scope."
+        tagline="What we aim to build and where we draw the line"
+        marginBottom={28}
+      />
 
       {/* ── 2 columns ── */}
       <div style={{ flex: 1, display: "flex", gap: 28, minHeight: 0 }}>
@@ -69,48 +40,44 @@ export function Slide08() {
           {...fadeInLeft(0.28)}
           style={{ flex: 1, display: "flex", flexDirection: "column", gap: 30 }}
         >
-          {/* Column header */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              marginBottom: 6,
-            }}
+          <SectionTitle
+            icon={
+              <IconBadge
+                gradient={["#7C3AED", "#A855F7"]}
+                shadow="rgba(124,58,237,0.35)"
+                size={32}
+                radius={9}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="6"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <circle cx="12" cy="12" r="2" fill="white" />
+                </svg>
+              </IconBadge>
+            }
+            sub={<ThaiText>เป้าหมายของโปรเจค</ThaiText>}
+            style={{ marginBottom: 6 }}
           >
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: 9,
-                background: "linear-gradient(135deg, #7C3AED, #A855F7)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 14px rgba(124,58,237,0.35)",
-                flexShrink: 0,
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
-                <circle cx="12" cy="12" r="6" stroke="white" strokeWidth="2" />
-                <circle cx="12" cy="12" r="2" fill="white" />
-              </svg>
-            </div>
-            <span style={{ fontSize: 17, fontWeight: 800, color: "#0A0A0A" }}>
-              Objective
-            </span>
-            <span style={{ fontSize: 13, color: "#9CA3AF", fontWeight: 500 }}>
-              <ThaiText>เป้าหมายของโปรเจค</ThaiText>
-            </span>
-          </div>
+            Objective
+          </SectionTitle>
 
-          {/* Card 1 — Research & Design */}
           {[
             {
               title: "Research & Design",
               th: "สืบค้นและออกแบบวิธีแก้ปัญหา เน้นไปที่ Data Ingestion Pipeline",
-              grad: ["#6366F1", "#8B5CF6"],
+              grad: ["#6366F1", "#8B5CF6"] as [string, string],
               shadow: "rgba(99,102,241,0.3)",
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -140,7 +107,7 @@ export function Slide08() {
             {
               title: "Evaluation",
               th: "กำหนดเมทริกเพื่อวัดคุณภาพของระบบ",
-              grad: ["#EC4899", "#F43F5E"],
+              grad: ["#EC4899", "#F43F5E"] as [string, string],
               shadow: "rgba(236,72,153,0.3)",
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -157,7 +124,7 @@ export function Slide08() {
             {
               title: "Implementation",
               th: "พัฒนาระบบที่มี Performance, Scalability และ Usability ที่เหมาะสม\nคำนึงความปลอดภัยพื้นฐาน",
-              grad: ["#10B981", "#059669"],
+              grad: ["#10B981", "#059669"] as [string, string],
               shadow: "rgba(16,185,129,0.3)",
               icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -193,21 +160,14 @@ export function Slide08() {
                 minHeight: 100,
               }}
             >
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
-                  flexShrink: 0,
-                  background: `linear-gradient(135deg, ${item.grad[0]}, ${item.grad[1]})`,
-                  boxShadow: `0 4px 16px ${item.shadow}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              <IconBadge
+                gradient={item.grad}
+                shadow={item.shadow}
+                size={44}
+                radius={12}
               >
                 {item.icon}
-              </div>
+              </IconBadge>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div
                   style={{
@@ -235,74 +195,51 @@ export function Slide08() {
           ))}
         </motion.div>
 
-        {/* Divider */}
-        <div
-          style={{
-            width: 1,
-            background:
-              "linear-gradient(180deg, transparent, #E5E7EB 15%, #E5E7EB 85%, transparent)",
-            flexShrink: 0,
-          }}
-        />
+        <VerticalDivider />
 
         {/* ── Right: Scope ── */}
         <motion.div
           {...fadeInRight(0.34)}
           style={{ flex: 1, display: "flex", flexDirection: "column", gap: 30 }}
         >
-          {/* Column header */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              marginBottom: 6,
-            }}
+          <SectionTitle
+            icon={
+              <IconBadge
+                gradient={["#F59E0B", "#EF4444"]}
+                shadow="rgba(245,158,11,0.35)"
+                size={32}
+                radius={9}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="3"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M9 9h6M9 12h6M9 15h4"
+                    stroke="white"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </IconBadge>
+            }
+            sub={<ThaiText>ขอบเขตของโปรเจค</ThaiText>}
+            style={{ marginBottom: 6 }}
           >
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: 9,
-                background: "linear-gradient(135deg, #F59E0B, #EF4444)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 14px rgba(245,158,11,0.35)",
-                flexShrink: 0,
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect
-                  x="3"
-                  y="3"
-                  width="18"
-                  height="18"
-                  rx="3"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M9 9h6M9 12h6M9 15h4"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-            <span style={{ fontSize: 17, fontWeight: 800, color: "#0A0A0A" }}>
-              Scope
-            </span>
-            <span style={{ fontSize: 13, color: "#9CA3AF", fontWeight: 500 }}>
-              <ThaiText>ขอบเขตของโปรเจค</ThaiText>
-            </span>
-          </div>
+            Scope
+          </SectionTitle>
 
           {[
             {
               title: "Data Ingestion",
               th: "โฟกัสแหล่งข้อมูล SharePoint (Xhive)",
-              grad: ["#F59E0B", "#F97316"],
+              grad: ["#F59E0B", "#F97316"] as [string, string],
               shadow: "rgba(245,158,11,0.3)",
               tagRgb: "245,158,11",
               tag: "SharePoint · Xhive",
@@ -332,7 +269,7 @@ export function Slide08() {
             {
               title: "User Interface",
               th: "พัฒนา Minimal Web Chat MVP พร้อมฟังก์ชันถาม-ตอบ",
-              grad: ["#06B6D4", "#3B82F6"],
+              grad: ["#06B6D4", "#3B82F6"] as [string, string],
               shadow: "rgba(6,182,212,0.3)",
               tagRgb: "6,182,212",
               tag: "Web Chat · MVP",
@@ -380,21 +317,14 @@ export function Slide08() {
                 minHeight: 100,
               }}
             >
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
-                  flexShrink: 0,
-                  background: `linear-gradient(135deg, ${item.grad[0]}, ${item.grad[1]})`,
-                  boxShadow: `0 4px 16px ${item.shadow}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              <IconBadge
+                gradient={item.grad}
+                shadow={item.shadow}
+                size={44}
+                radius={12}
               >
                 {item.icon}
-              </div>
+              </IconBadge>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div
                   style={{
@@ -414,20 +344,16 @@ export function Slide08() {
                   >
                     {item.title}
                   </span>
-                  <span
-                    style={{
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: item.grad[0],
-                      padding: "2px 8px",
-                      borderRadius: 99,
-                      background: `rgba(${item.tagRgb}, 0.08)`,
-                      border: `1px solid rgba(${item.tagRgb}, 0.25)`,
-                      letterSpacing: "0.06em",
-                    }}
+                  <Pill
+                    color={item.grad[0]}
+                    rgb={item.tagRgb}
+                    fontSize={10}
+                    letterSpacing="0.06em"
+                    padding="2px 8px"
+                    uppercase={false}
                   >
                     {item.tag}
-                  </span>
+                  </Pill>
                 </div>
                 <p
                   style={{
@@ -443,7 +369,6 @@ export function Slide08() {
             </motion.div>
           ))}
 
-          {/* Spacer to fill height like left col */}
           <div style={{ flex: 1 }} />
         </motion.div>
       </div>

@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { ThaiText } from "../components/ThaiText.tsx";
+import {
+  BigGhostNumber,
+  Callout,
+  ImagePlaceholder,
+  Pill,
+  SlideHeader,
+  SlideShell,
+  ThaiText,
+  VerticalDivider,
+} from "../components/index.ts";
 import {
   DISTANCE,
   DURATION,
   fadeInLeft,
   fadeInRight,
-  slideHeader,
   stagger,
 } from "../lib/motion.ts";
 
@@ -48,45 +52,13 @@ const GAPS = [
 export function Slide05() {
   return (
     <SlideShell glows={GLOWS}>
-      {/* ── Header (consistent with other slides) ── */}
-      <motion.div
-        {...slideHeader()}
-        style={{
-          paddingBottom: 22,
-          borderBottom: "1px solid #F0F0F0",
-          marginBottom: 28,
-        }}
-      >
-        <SlideLabel label="Aingo" style={{ marginBottom: 14 }} />
-        <h1
-          style={{
-            fontSize: 72,
-            fontWeight: 900,
-            letterSpacing: "-2.5px",
-            lineHeight: 1.0,
-            margin: "0 0 16px",
-            color: "#0A0A0A",
-            userSelect: "none",
-            paddingTop: 4,
-          }}
-        >
-          Why Existing <GradientText>System Fails.</GradientText>
-        </h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <AccentLine delay={0.4} width={80} />
-          <span
-            style={{
-              fontSize: 13,
-              color: "#9CA3AF",
-              fontWeight: 500,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            The Core Technical Challenge
-          </span>
-        </div>
-      </motion.div>
+      <SlideHeader
+        label="Aingo"
+        title="Why Existing"
+        highlight="System Fails."
+        tagline="The Core Technical Challenge"
+        marginBottom={28}
+      />
 
       {/* ── Body: 2-col asymmetric ── */}
       <div
@@ -123,22 +95,9 @@ export function Slide05() {
                   i < GAPS.length - 1 ? "1px solid #F3F4F6" : "none",
               }}
             >
-              {/* Big ghost number */}
-              <span
-                style={{
-                  fontSize: 56,
-                  fontWeight: 900,
-                  letterSpacing: "-3px",
-                  lineHeight: 1,
-                  color: `rgba(${gap.accentRgb},0.12)`,
-                  fontVariantNumeric: "tabular-nums",
-                  flexShrink: 0,
-                  width: 68,
-                  textAlign: "right",
-                }}
-              >
+              <BigGhostNumber rgb={gap.accentRgb} width={68}>
                 {gap.num}
-              </span>
+              </BigGhostNumber>
 
               {/* Accent bar */}
               <div
@@ -152,7 +111,6 @@ export function Slide05() {
                 }}
               />
 
-              {/* Text */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div
                   style={{
@@ -173,22 +131,9 @@ export function Slide05() {
                   >
                     <ThaiText>{gap.th}</ThaiText>
                   </span>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: gap.accent,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      padding: "2px 9px",
-                      borderRadius: 99,
-                      background: `rgba(${gap.accentRgb},0.08)`,
-                      border: `1px solid rgba(${gap.accentRgb},0.2)`,
-                      flexShrink: 0,
-                    }}
-                  >
+                  <Pill color={gap.accent} rgb={gap.accentRgb} padding="2px 9px">
                     {gap.en}
-                  </span>
+                  </Pill>
                 </div>
                 <p
                   style={{
@@ -205,15 +150,7 @@ export function Slide05() {
           ))}
         </div>
 
-        {/* Vertical rule */}
-        <div
-          style={{
-            width: 1,
-            background:
-              "linear-gradient(180deg, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent)",
-            flexShrink: 0,
-          }}
-        />
+        <VerticalDivider />
 
         {/* Right: image card */}
         <motion.div
@@ -226,111 +163,12 @@ export function Slide05() {
             gap: 14,
           }}
         >
-          {/* Image placeholder card */}
-          <div
-            style={{
-              flex: 1,
-              borderRadius: 16,
-              overflow: "hidden",
-              border: "1px solid #E5E7EB",
-              background: "#F8F8FC",
-              position: "relative",
-              minHeight: 0,
-            }}
-          >
-            {/* Placeholder pattern */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage:
-                  "radial-gradient(circle, rgba(124,58,237,0.07) 1px, transparent 1px)",
-                backgroundSize: "20px 20px",
-              }}
-            />
-            {/* Subtle purple-to-white gradient overlay */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(160deg, rgba(124,58,237,0.08) 0%, transparent 60%)",
-              }}
-            />
-            {/* Centered image icon */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 10,
-              }}
-            >
-              <div
-                style={{
-                  width: 52,
-                  height: 52,
-                  borderRadius: 14,
-                  background: "rgba(124,58,237,0.1)",
-                  border: "1px solid rgba(124,58,237,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="3"
-                    y="3"
-                    width="18"
-                    height="18"
-                    rx="3"
-                    stroke="#7C3AED"
-                    strokeWidth="1.8"
-                  />
-                  <circle
-                    cx="8.5"
-                    cy="8.5"
-                    r="1.5"
-                    fill="#7C3AED"
-                    opacity="0.6"
-                  />
-                  <path
-                    d="M3 15l5-5 4 4 3-3 6 6"
-                    stroke="#7C3AED"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    opacity="0.7"
-                  />
-                </svg>
-              </div>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: "#A78BFA",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Image placeholder
-              </span>
-            </div>
-          </div>
+          <ImagePlaceholder variant="dotted" label="Image placeholder" />
 
-          {/* Caption card */}
-          <div
-            style={{
-              padding: "12px 14px",
-              borderRadius: 12,
-              background: "rgba(124,58,237,0.04)",
-              border: "1px solid rgba(124,58,237,0.14)",
-              borderLeft: "3px solid rgba(124,58,237,0.5)",
-            }}
+          <Callout
+            eyebrow={null}
+            bgOpacity={0.04}
+            style={{ borderLeftColor: "rgba(124,58,237,0.5)" }}
           >
             <div
               style={{
@@ -355,7 +193,7 @@ export function Slide05() {
                 แต่เพราะขาดสถาปัตยกรรมที่ถูกต้อง
               </ThaiText>
             </p>
-          </div>
+          </Callout>
         </motion.div>
       </div>
     </SlideShell>

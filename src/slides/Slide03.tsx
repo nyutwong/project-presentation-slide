@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { ThaiText } from "../components/ThaiText.tsx";
 import {
-  DISTANCE,
-  expandY,
-  fadeInRight,
-  heroTitle,
-} from "../lib/motion.ts";
+  AccentLine,
+  GradientText,
+  IconTile,
+  Pill,
+  SlideLabel,
+  SlideShell,
+  ThaiText,
+  VerticalDivider,
+} from "../components/index.ts";
+import { DISTANCE, fadeInRight, heroTitle } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -280, right: -160, size: 800, color: "124,58,237", opacity: 0.12 },
@@ -17,20 +17,7 @@ const GLOWS = [
 
 function ZapIcon() {
   return (
-    <div
-      style={{
-        width: 52,
-        height: 52,
-        borderRadius: 14,
-        background:
-          "linear-gradient(135deg, rgba(124,58,237,0.1), rgba(168,85,247,0.15))",
-        border: "1px solid rgba(124,58,237,0.2)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexShrink: 0,
-      }}
-    >
+    <IconTile size={52} radius={14} bgOpacity={0.1} borderOpacity={0.2}>
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
         <defs>
           <linearGradient
@@ -47,25 +34,18 @@ function ZapIcon() {
         </defs>
         <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="url(#zap-grad)" />
       </svg>
-    </div>
+    </IconTile>
   );
 }
 
 function ParadoxIcon() {
   return (
-    <div
-      style={{
-        width: 52,
-        height: 52,
-        borderRadius: 14,
-        background:
-          "linear-gradient(135deg, rgba(236,72,153,0.07), rgba(168,85,247,0.12))",
-        border: "1px solid rgba(168,85,247,0.2)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexShrink: 0,
-      }}
+    <IconTile
+      size={52}
+      radius={14}
+      rgb="168,85,247"
+      bgOpacity={0.1}
+      borderOpacity={0.2}
     >
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
         <defs>
@@ -97,16 +77,29 @@ function ParadoxIcon() {
           strokeDasharray="3 2"
         />
       </svg>
-    </div>
+    </IconTile>
   );
 }
+
+const cardStyle = {
+  padding: "32px 36px",
+  background: "#FAFAFA",
+  borderRadius: 20,
+  border: "1px solid #F3F4F6",
+} as const;
+
+const cardBodyStyle = {
+  fontSize: "var(--slide-body)",
+  color: "#374151",
+  lineHeight: 1.7,
+  margin: 0,
+} as const;
 
 export function Slide03() {
   return (
     <SlideShell glows={GLOWS}>
       <SlideLabel label="Section" style={{ marginBottom: 40 }} />
 
-      {/* Split layout */}
       <div style={{ flex: 1, display: "flex", gap: 72, alignItems: "stretch" }}>
         {/* Left: Title */}
         <div
@@ -139,17 +132,7 @@ export function Slide03() {
           <AccentLine delay={0.45} width={72} />
         </div>
 
-        {/* Vertical divider */}
-        <motion.div
-          {...expandY(0.38)}
-          style={{
-            width: 1,
-            background:
-              "linear-gradient(to bottom, transparent, #E5E7EB 15%, #E5E7EB 85%, transparent)",
-            transformOrigin: "top center",
-            flexShrink: 0,
-          }}
-        />
+        <VerticalDivider animated delay={0.38} />
 
         {/* Right: Cards */}
         <div
@@ -162,15 +145,7 @@ export function Slide03() {
           }}
         >
           {/* Card 1 — Speed & Adaptability */}
-          <motion.div
-            {...fadeInRight(0.5, { distance: 28 })}
-            style={{
-              padding: "32px 36px",
-              background: "#FAFAFA",
-              borderRadius: 20,
-              border: "1px solid #F3F4F6",
-            }}
-          >
+          <motion.div {...fadeInRight(0.5, { distance: 28 })} style={cardStyle}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
               <ZapIcon />
               <div>
@@ -185,14 +160,7 @@ export function Slide03() {
                 >
                   Speed &amp; Adaptability
                 </div>
-                <p
-                  style={{
-                    fontSize: "var(--slide-body)",
-                    color: "#374151",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
+                <p style={cardBodyStyle}>
                   <ThaiText>
                     ในปัจจุบัน
                     การที่ธุรกิจจะอยู่รอดในโลกที่เปลี่ยนแปลงย่างรวดเร็วได้
@@ -205,15 +173,7 @@ export function Slide03() {
           </motion.div>
 
           {/* Card 2 — The Paradox */}
-          <motion.div
-            {...fadeInRight(0.65, { distance: 28 })}
-            style={{
-              padding: "32px 36px",
-              background: "#FAFAFA",
-              borderRadius: 20,
-              border: "1px solid #F3F4F6",
-            }}
-          >
+          <motion.div {...fadeInRight(0.65, { distance: 28 })} style={cardStyle}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
               <ParadoxIcon />
               <div>
@@ -235,29 +195,17 @@ export function Slide03() {
                   >
                     The Paradox
                   </span>
-                  <div
-                    style={{
-                      fontSize: 13,
-                      padding: "3px 10px",
-                      borderRadius: 20,
-                      background: "rgba(236,72,153,0.08)",
-                      border: "1px solid rgba(236,72,153,0.2)",
-                      color: "#EC4899",
-                      fontWeight: 600,
-                      letterSpacing: "0.04em",
-                    }}
+                  <Pill
+                    color="#EC4899"
+                    rgb="236,72,153"
+                    fontSize={13}
+                    letterSpacing="0.04em"
+                    uppercase={false}
                   >
                     Core Problem
-                  </div>
+                  </Pill>
                 </div>
-                <p
-                  style={{
-                    fontSize: "var(--slide-body)",
-                    color: "#374151",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
+                <p style={cardBodyStyle}>
                   <ThaiText>
                     เมื่อเวลาผ่านไปบริษัทเติบโตขึ้น
                     มีประสบการณ์และความรู้มากขึ้น

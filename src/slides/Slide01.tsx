@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { SlideShell } from "../components/SlideShell.tsx";
-import { GradientText } from "../components/GradientText.tsx";
-import { AccentLine } from "../components/AccentLine.tsx";
-import { bottomStrip, bodyText, heroTitle, topBar } from "../lib/motion.ts";
+import { AccentLine, GradientText, SlideShell } from "../components/index.ts";
+import { bodyText, bottomStrip, heroTitle, topBar } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -320, right: -180, size: 960, color: "124,58,237", opacity: 0.18 },
