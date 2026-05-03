@@ -2,31 +2,37 @@ import { motion } from "framer-motion";
 import { SlideShell, SlideHeader, Pill } from "../components/index.ts";
 import { fadeInUp, stagger, DURATION } from "../lib/motion.ts";
 
+import bornImg from "../assets/images/profile/born.jpg";
+import atomImg from "../assets/images/profile/atom.jpeg";
+import masImg from "../assets/images/profile/mas.jpeg";
+import prodImg from "../assets/images/profile/prod.jpeg";
+import ponImg from "../assets/images/profile/pon.jpeg";
+
 const MEMBERS = [
   {
     name: "Tanit Yodsirawong (Born)",
     roles: ["Web Developer", "UX/UI Designer"],
-    img: null,
+    img: bornImg,
   },
   {
     name: "Peerapat Patcharamontree (Atom)",
     roles: ["Web Developer", "Project Manager"],
-    img: null,
+    img: atomImg,
   },
   {
     name: "Chawin Leardswai (Mas)",
     roles: ["Data Engineer"],
-    img: null,
+    img: masImg,
   },
   {
     name: "Puran Prasertthai (Prod)",
     roles: ["Data Engineer"],
-    img: null,
+    img: prodImg,
   },
   {
     name: "Nattapol Teerayuttawong (Pon)",
     roles: ["AI Engineer"],
-    img: null,
+    img: ponImg,
   },
 ];
 
@@ -61,6 +67,7 @@ function MemberCard({ member, delay, size = 150 }: { member: typeof MEMBERS[numb
         background: "linear-gradient(145deg, #e8e8f0, #d0d0e0)",
         flexShrink: 0,
         position: "relative",
+        boxShadow: `0 10px 25px -5px rgba(${mainRole.rgb}, 0.2), 0 8px 10px -6px rgba(${mainRole.rgb}, 0.1)`,
       }}>
         {member.img ? (
           <img src={member.img} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
