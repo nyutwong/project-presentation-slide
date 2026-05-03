@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { SlideHeader, SlideShell, AnimatedBeam, IconBadge } from "../components/index.ts";
-import { DISTANCE, DURATION, fadeIn, fadeInUp } from "../lib/motion.ts";
+import { DISTANCE, DURATION, fadeIn, fadeInUp, EASE } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -200, right: -100, size: 640, color: "124,58,237", opacity: 0.08 },
@@ -53,9 +53,23 @@ function FlowNode({
   const Icon = s.icon;
   return (
     <motion.div
-      {...fadeIn(delay, { duration: DURATION.med })}
-      whileHover={{ scale: 1.05, y: -4, boxShadow: `0 16px 40px rgba(${s.rgb},0.4)`, zIndex: 20 }}
-      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      whileHover={{ 
+        scale: 1.05, 
+        y: -4, 
+        boxShadow: `0 16px 40px rgba(${s.rgb},0.4)`, 
+        zIndex: 20,
+        transition: { duration: 0.2, ease: "easeOut" }
+      }}
+      whileTap={{ 
+        scale: 0.95,
+        transition: { duration: 0.1 }
+      }}
+      transition={{ 
+        duration: 0.2, // Default fast return for unhover
+        opacity: { delay, duration: DURATION.med, ease: EASE } // Initial entrance
+      }}
       style={{
         width: 188,
         height: 188,
