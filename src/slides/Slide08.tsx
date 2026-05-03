@@ -4,7 +4,15 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  DURATION,
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  slideHeader,
+  stagger,
+} from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -260, right: -120, size: 720, color: "124,58,237", opacity: 0.11 },
@@ -16,9 +24,7 @@ export function Slide08() {
     <SlideShell glows={GLOWS}>
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 22,
           borderBottom: "1px solid #F0F0F0",
@@ -60,9 +66,7 @@ export function Slide08() {
       <div style={{ flex: 1, display: "flex", gap: 28, minHeight: 0 }}>
         {/* ── Left: Objective ── */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.28, ease: EASE }}
+          {...fadeInLeft(0.28)}
           style={{ flex: 1, display: "flex", flexDirection: "column", gap: 30 }}
         >
           {/* Column header */}
@@ -177,9 +181,10 @@ export function Slide08() {
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.38 + i * 0.1, ease: EASE }}
+              {...fadeInUp(stagger(0.38, 0.1, i), {
+                distance: DISTANCE.sm,
+                duration: DURATION.short,
+              })}
               style={{
                 display: "flex",
                 alignItems: "flex-start",
@@ -242,9 +247,7 @@ export function Slide08() {
 
         {/* ── Right: Scope ── */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.34, ease: EASE }}
+          {...fadeInRight(0.34)}
           style={{ flex: 1, display: "flex", flexDirection: "column", gap: 30 }}
         >
           {/* Column header */}
@@ -365,9 +368,10 @@ export function Slide08() {
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.44 + i * 0.1, ease: EASE }}
+              {...fadeInUp(stagger(0.44, 0.1, i), {
+                distance: DISTANCE.sm,
+                duration: DURATION.short,
+              })}
               style={{
                 display: "flex",
                 alignItems: "flex-start",

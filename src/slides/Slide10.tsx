@@ -4,7 +4,14 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  DURATION,
+  fadeInLeft,
+  fadeInUp,
+  scaleIn,
+  slideHeader,
+} from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -220, right: -100, size: 680, color: "16,185,129", opacity: 0.09 },
@@ -58,9 +65,7 @@ function BenefitItem({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -12 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay, ease: EASE }}
+      {...fadeInLeft(delay, { distance: DISTANCE.xs, duration: 0.5 })}
       style={{
         display: "flex",
         alignItems: "center",
@@ -110,9 +115,7 @@ export function Slide10() {
     <SlideShell glows={GLOWS}>
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 20,
           borderBottom: "1px solid #F0F0F0",
@@ -162,9 +165,10 @@ export function Slide10() {
       >
         {/* ── Image row ── */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.28, ease: EASE }}
+          {...fadeInUp(0.28, {
+            distance: DISTANCE.sm,
+            duration: DURATION.base,
+          })}
           style={{ display: "flex", gap: 14, flex: 1, minHeight: 0 }}
         >
           {/* Image placeholder 1 */}
@@ -290,9 +294,7 @@ export function Slide10() {
 
         {/* ── Before / After ── */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.38, ease: EASE }}
+          {...fadeInUp(0.38, { distance: DISTANCE.sm, duration: DURATION.med })}
           style={{ display: "flex", gap: 14 }}
         >
           {/* Before */}
@@ -363,9 +365,7 @@ export function Slide10() {
 
           {/* Arrow */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.5, ease: EASE }}
+            {...scaleIn(0.5)}
             style={{
               flexShrink: 0,
               alignSelf: "center",
@@ -447,9 +447,7 @@ export function Slide10() {
         <div style={{ display: "flex", gap: 18 }}>
           {/* Academic / Technical */}
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.42, ease: EASE }}
+            {...fadeInUp(0.42, { distance: 18, duration: DURATION.base })}
             style={{
               flex: 1,
               borderRadius: 16,
@@ -520,9 +518,7 @@ export function Slide10() {
 
           {/* Industrial / Professional */}
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.52, ease: EASE }}
+            {...fadeInUp(0.52, { distance: 18, duration: DURATION.base })}
             style={{
               flex: 1,
               borderRadius: 16,

@@ -3,7 +3,12 @@ import { SlideShell } from "../components/SlideShell.tsx";
 import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  DURATION,
+  fadeInUp,
+  slideHeader,
+} from "../lib/motion.ts";
 import systemOverview from "../assets/system-overview.png";
 
 const GLOWS = [
@@ -16,9 +21,7 @@ export function Slide12() {
     <SlideShell glows={GLOWS}>
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 20,
           borderBottom: "1px solid #F0F0F0",
@@ -45,9 +48,7 @@ export function Slide12() {
 
       {/* ── Image ── */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+        {...fadeInUp(0.3, { distance: DISTANCE.sm, duration: DURATION.med })}
         style={{
           flex: 1,
           minHeight: 0,

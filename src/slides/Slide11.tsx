@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { SlideShell } from "../components/SlideShell.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  bottomStrip,
+  heroTitle,
+  sectionLabel,
+} from "../lib/motion.ts";
 import { useSlideNum } from "../context/SlideContext.tsx";
 
 const GLOWS = [
@@ -38,9 +43,7 @@ export function Slide11() {
     >
       {/* Section label */}
       <motion.div
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: EASE }}
+        {...sectionLabel()}
         style={{
           display: "flex",
           alignItems: "center",
@@ -77,9 +80,7 @@ export function Slide11() {
 
       {/* Main text */}
       <motion.h1
-        initial={{ opacity: 0, y: 56 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.0, delay: 0.1, ease: EASE }}
+        {...heroTitle(0.1, DISTANCE.xl)}
         style={{
           fontSize: 192,
           fontWeight: 900,
@@ -105,9 +106,7 @@ export function Slide11() {
 
       {/* Bottom label */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
+        {...bottomStrip(0.9)}
         style={{
           position: "absolute",
           bottom: 72,

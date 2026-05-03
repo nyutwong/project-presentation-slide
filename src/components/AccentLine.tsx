@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { EASE } from "../lib/motion.ts";
+import { expandX } from "../lib/motion.ts";
 
 interface AccentLineProps {
   delay?: number;
@@ -11,9 +11,7 @@ interface AccentLineProps {
 export function AccentLine({ delay = 0, width = 140, style }: AccentLineProps) {
   return (
     <motion.div
-      initial={{ scaleX: 0 }}
-      animate={{ scaleX: 1 }}
-      transition={{ duration: 0.75, delay, ease: EASE }}
+      {...expandX(delay)}
       style={{
         height: 3,
         width,

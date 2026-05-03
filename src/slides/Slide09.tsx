@@ -5,7 +5,7 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import { EASE, slideHeader } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -200, right: -100, size: 640, color: "124,58,237", opacity: 0.1 },
@@ -213,9 +213,7 @@ export function Slide09() {
     <SlideShell glows={GLOWS}>
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 22,
           borderBottom: "1px solid #F0F0F0",

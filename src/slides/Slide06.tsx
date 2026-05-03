@@ -4,7 +4,7 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import { cardRise, slideHeader, stagger } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -280, right: -140, size: 760, color: "124,58,237", opacity: 0.11 },
@@ -130,9 +130,7 @@ export function Slide06() {
     <SlideShell glows={GLOWS}>
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 22,
           borderBottom: "1px solid #F0F0F0",
@@ -183,9 +181,7 @@ export function Slide06() {
         {LEVELS.map((lvl, i) => (
           <motion.div
             key={lvl.num}
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.28 + i * 0.12, ease: EASE }}
+            {...cardRise(stagger(0.28, 0.12, i))}
             style={{
               flex: 1,
               display: "flex",

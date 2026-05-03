@@ -4,7 +4,12 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  expandY,
+  fadeInRight,
+  heroTitle,
+} from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -280, right: -160, size: 800, color: "124,58,237", opacity: 0.12 },
@@ -114,9 +119,7 @@ export function Slide03() {
           }}
         >
           <motion.h1
-            initial={{ opacity: 0, y: 56 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, delay: 0.12, ease: EASE }}
+            {...heroTitle(0.12, DISTANCE.xl)}
             style={{
               fontSize: 100,
               fontWeight: 900,
@@ -138,9 +141,7 @@ export function Slide03() {
 
         {/* Vertical divider */}
         <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 0.8, delay: 0.38, ease: EASE }}
+          {...expandY(0.38)}
           style={{
             width: 1,
             background:
@@ -162,9 +163,7 @@ export function Slide03() {
         >
           {/* Card 1 — Speed & Adaptability */}
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
+            {...fadeInRight(0.5, { distance: 28 })}
             style={{
               padding: "32px 36px",
               background: "#FAFAFA",
@@ -207,9 +206,7 @@ export function Slide03() {
 
           {/* Card 2 — The Paradox */}
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.65, ease: EASE }}
+            {...fadeInRight(0.65, { distance: 28 })}
             style={{
               padding: "32px 36px",
               background: "#FAFAFA",

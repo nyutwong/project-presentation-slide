@@ -4,7 +4,14 @@ import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import {
+  DISTANCE,
+  DURATION,
+  fadeInLeft,
+  fadeInRight,
+  slideHeader,
+  stagger,
+} from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -300, right: -160, size: 800, color: "124,58,237", opacity: 0.13 },
@@ -43,9 +50,7 @@ export function Slide05() {
     <SlideShell glows={GLOWS}>
       {/* ── Header (consistent with other slides) ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 22,
           borderBottom: "1px solid #F0F0F0",
@@ -105,13 +110,10 @@ export function Slide05() {
           {GAPS.map((gap, i) => (
             <motion.div
               key={gap.num}
-              initial={{ opacity: 0, x: -32 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.65,
-                delay: 0.35 + i * 0.12,
-                ease: EASE,
-              }}
+              {...fadeInLeft(stagger(0.35, 0.12, i), {
+                distance: DISTANCE.lg,
+                duration: DURATION.base,
+              })}
               style={{
                 flex: 1,
                 display: "flex",
@@ -215,9 +217,7 @@ export function Slide05() {
 
         {/* Right: image card */}
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.28, ease: EASE }}
+          {...fadeInRight(0.28, { distance: 24, duration: DURATION.slow })}
           style={{
             width: "30%",
             flexShrink: 0,

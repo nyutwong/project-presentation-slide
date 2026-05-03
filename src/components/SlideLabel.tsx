@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { EASE } from "../lib/motion.ts";
+import { topBar } from "../lib/motion.ts";
 import { useSlideNum } from "../context/SlideContext.tsx";
 
 interface SlideLabelProps {
@@ -14,9 +14,7 @@ export function SlideLabel({ label, style }: SlideLabelProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: EASE }}
+      {...topBar()}
       style={{ display: "flex", alignItems: "center", gap: 10, ...style }}
     >
       <div

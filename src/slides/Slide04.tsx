@@ -6,7 +6,7 @@ import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
 import Lanyard from "../components/Lanyard.tsx";
 import { ThaiText } from "../components/ThaiText.tsx";
-import { EASE } from "../lib/motion.ts";
+import { fadeIn, fadeInRight, slideHeader } from "../lib/motion.ts";
 
 const GLOWS = [
   { bottom: -260, left: -140, size: 680, color: "239,68,68", opacity: 0.07 },
@@ -308,9 +308,7 @@ export function Slide04() {
     <SlideShell glows={GLOWS}>
       {/* Area 1: Header — full width */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        {...slideHeader()}
         style={{
           paddingBottom: 22,
           borderBottom: "1px solid #F0F0F0",
@@ -339,9 +337,7 @@ export function Slide04() {
       <div style={{ flex: 1, display: "flex", gap: 24, minHeight: 0 }}>
         {/* Area 2: Lanyard — left column, full height */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+          {...fadeIn(0.3)}
           style={{ flex: 1, minHeight: 0 }}
         >
           <Lanyard
@@ -354,9 +350,7 @@ export function Slide04() {
 
         {/* Area 3: Content — right column, single stacked column */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.42, ease: EASE }}
+          {...fadeInRight(0.42)}
           style={{
             flex: 1,
             display: "flex",

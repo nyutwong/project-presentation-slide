@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { SlideShell } from "../components/SlideShell.tsx";
-import { SlideLabel } from "../components/SlideLabel.tsx";
 import { GradientText } from "../components/GradientText.tsx";
 import { AccentLine } from "../components/AccentLine.tsx";
-import { EASE } from "../lib/motion.ts";
+import { bottomStrip, bodyText, heroTitle, topBar } from "../lib/motion.ts";
 
 const GLOWS = [
   { top: -320, right: -180, size: 960, color: "124,58,237", opacity: 0.18 },
@@ -15,9 +14,7 @@ export function Slide01() {
     <SlideShell glows={GLOWS}>
       {/* Top bar */}
       <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: EASE }}
+        {...topBar()}
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -77,9 +74,7 @@ export function Slide01() {
         }}
       >
         <motion.h1
-          initial={{ opacity: 0, y: 64 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, delay: 0.12, ease: EASE }}
+          {...heroTitle()}
           style={{
             fontSize: 150,
             fontWeight: 900,
@@ -101,9 +96,7 @@ export function Slide01() {
         <AccentLine delay={0.55} width={140} style={{ marginBottom: 36 }} />
 
         <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.72, ease: EASE }}
+          {...bodyText()}
           style={{
             fontSize: 34,
             color: "#6B7280",
@@ -119,9 +112,7 @@ export function Slide01() {
 
       {/* Bottom strip */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
+        {...bottomStrip()}
         style={{
           display: "flex",
           justifyContent: "space-between",
