@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CSSProperties, ReactNode } from "react";
-import { bottomStrip } from "../lib/motion.ts";
+import { bottomStrip } from "../../lib/motion.ts";
 
 interface BottomLabelProps {
   children?: ReactNode;

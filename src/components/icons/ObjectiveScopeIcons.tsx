@@ -1,4 +1,4 @@
-import { IconBadge } from "../IconBadge.tsx";
+import { IconBadge } from "../primitives/IconBadge.tsx";
 
 /** Column header icon for the "Objective" section (target circles). */
 export function ObjectiveColumnIcon() {

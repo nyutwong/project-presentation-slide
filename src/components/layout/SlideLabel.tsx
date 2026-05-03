@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { topBar } from "../lib/motion.ts";
-import { useSlideNum } from "../context/SlideContext.tsx";
+import { topBar } from "../../lib/motion.ts";
+import { useSlideNum } from "../../context/SlideContext.tsx";
 
 interface SlideLabelProps {
   label: string;

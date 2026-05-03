@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { DISTANCE, fadeInLeft } from "../lib/motion.ts";
+import { DISTANCE, fadeInLeft } from "../../lib/motion.ts";
 
 interface BenefitItemProps {
   children: ReactNode;

@@ -1,34 +1,30 @@
-// ─── Layout / chrome ───────────────────────────────────────────────────────
-export { SlideShell } from "./SlideShell.tsx";
-export { SlideHeader } from "./SlideHeader.tsx";
-export { SlideLabel } from "./SlideLabel.tsx";
-export { SectionDivider } from "./SectionDivider.tsx";
-export { SectionTitle } from "./SectionTitle.tsx";
-export { BottomLabel } from "./BottomLabel.tsx";
-export { PresentationFrame } from "./PresentationFrame.tsx";
-export { Navigation } from "./Navigation.tsx";
+// ─── Layout ────────────────────────────────────────────────────────────────
+export { SlideShell } from "./layout/SlideShell.tsx";
+export { SlideHeader } from "./layout/SlideHeader.tsx";
+export { SlideLabel } from "./layout/SlideLabel.tsx";
+export { SectionDivider } from "./layout/SectionDivider.tsx";
+export { BottomLabel } from "./layout/BottomLabel.tsx";
+export { PresentationFrame } from "./layout/PresentationFrame.tsx";
+export { Navigation } from "./layout/Navigation.tsx";
 
-// ─── Typography ────────────────────────────────────────────────────────────
-export { GradientText } from "./GradientText.tsx";
-export { ThaiText } from "./ThaiText.tsx";
-export { AccentLine } from "./AccentLine.tsx";
+// ─── Composite ─────────────────────────────────────────────────────────────
+export { SectionTitle } from "./composite/SectionTitle.tsx";
+export { Callout } from "./composite/Callout.tsx";
+export { IconCard } from "./composite/IconCard.tsx";
+export { BeforeAfterRow } from "./composite/BeforeAfterRow.tsx";
+export { BenefitItem } from "./composite/BenefitItem.tsx";
+export { default as Lanyard } from "./composite/Lanyard.tsx";
 
-// ─── UI primitives ─────────────────────────────────────────────────────────
-export { Pill } from "./Pill.tsx";
-export { IconTile } from "./IconTile.tsx";
-export { IconBadge } from "./IconBadge.tsx";
-export { BigGhostNumber } from "./BigGhostNumber.tsx";
-export { ImagePlaceholder } from "./ImagePlaceholder.tsx";
-export { VerticalDivider, HorizontalDivider } from "./Divider.tsx";
-
-// ─── Composite cards ───────────────────────────────────────────────────────
-export { Callout } from "./Callout.tsx";
-export { IconCard } from "./IconCard.tsx";
-export { BeforeAfterRow } from "./BeforeAfterRow.tsx";
-export { BenefitItem } from "./BenefitItem.tsx";
-
-// ─── 3D / Special ──────────────────────────────────────────────────────────
-export { default as Lanyard } from "./Lanyard.tsx";
+// ─── Primitives ────────────────────────────────────────────────────────────
+export { Pill } from "./primitives/Pill.tsx";
+export { IconTile } from "./primitives/IconTile.tsx";
+export { IconBadge } from "./primitives/IconBadge.tsx";
+export { BigGhostNumber } from "./primitives/BigGhostNumber.tsx";
+export { ImagePlaceholder } from "./primitives/ImagePlaceholder.tsx";
+export { VerticalDivider, HorizontalDivider } from "./primitives/Divider.tsx";
+export { GradientText } from "./primitives/GradientText.tsx";
+export { ThaiText } from "./primitives/ThaiText.tsx";
+export { AccentLine } from "./primitives/AccentLine.tsx";
 
 // ─── Icons ─────────────────────────────────────────────────────────────────
 export { ZapIcon, ParadoxIcon } from "./icons/BackgroundIcons.tsx";

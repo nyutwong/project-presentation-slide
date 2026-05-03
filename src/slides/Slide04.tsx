@@ -7,6 +7,7 @@ import {
   HorizontalDivider,
   IconCard,
   IconTile,
+  Lanyard,
   ScatterIcon,
   SearchFailIcon,
   SectionTitle,
@@ -14,7 +15,6 @@ import {
   SlideShell,
   ThaiText,
 } from "../components/index.ts";
-import Lanyard from "../components/Lanyard.tsx";
 import { fadeIn, fadeInRight } from "../lib/motion.ts";
 
 const GLOWS = [

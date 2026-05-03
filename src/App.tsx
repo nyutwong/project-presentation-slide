@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { slides } from "./slides/index.ts";
 import { usePresentation } from "./hooks/usePresentation.ts";
-import { PresentationFrame } from "./components/PresentationFrame.tsx";
+import { PresentationFrame } from "./components/index.ts";
 import { SlideContext } from "./context/SlideContext.tsx";
 import { slideSwipeTransition, slideSwipeVariants } from "./lib/motion.ts";
 

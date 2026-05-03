@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import type { CSSProperties, ReactNode } from "react";
 import { SlideLabel } from "./SlideLabel.tsx";
-import { GradientText } from "./GradientText.tsx";
-import { AccentLine } from "./AccentLine.tsx";
-import { ThaiText } from "./ThaiText.tsx";
-import { slideHeader } from "../lib/motion.ts";
+import { GradientText } from "../primitives/GradientText.tsx";
+import { AccentLine } from "../primitives/AccentLine.tsx";
+import { ThaiText } from "../primitives/ThaiText.tsx";
+import { slideHeader } from "../../lib/motion.ts";
 
 interface SlideHeaderProps {
   /** Small uppercase label above the title (e.g. "Aingo", "Problems"). */

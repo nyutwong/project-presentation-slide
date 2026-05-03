@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { SlideShell } from "./SlideShell.tsx";
-import { GradientText } from "./GradientText.tsx";
-import { AccentLine } from "./AccentLine.tsx";
+import { GradientText } from "../primitives/GradientText.tsx";
+import { AccentLine } from "../primitives/AccentLine.tsx";
 import { BottomLabel } from "./BottomLabel.tsx";
-import { DISTANCE, heroTitle, sectionLabel } from "../lib/motion.ts";
-import { useSlideNum } from "../context/SlideContext.tsx";
+import { DISTANCE, heroTitle, sectionLabel } from "../../lib/motion.ts";
+import { useSlideNum } from "../../context/SlideContext.tsx";
 
 const GLOWS = [
   {

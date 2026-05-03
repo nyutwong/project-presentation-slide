@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { expandY } from "../lib/motion.ts";
+import { expandY } from "../../lib/motion.ts";
 
 interface VerticalDividerProps {
   /** Animate scaleY from 0→1. Defaults to false (static). */

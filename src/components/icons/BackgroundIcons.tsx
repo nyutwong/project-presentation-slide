@@ -1,4 +1,4 @@
-import { IconTile } from "../IconTile.tsx";
+import { IconTile } from "../primitives/IconTile.tsx";
 
 export function ZapIcon() {
   return (

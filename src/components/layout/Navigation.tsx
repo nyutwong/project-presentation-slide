@@ -1,4 +1,4 @@
-import type { PresentationState } from '../hooks/usePresentation.ts';
+import type { PresentationState } from '../../hooks/usePresentation.ts';
 
 interface NavigationProps {
   state: PresentationState;

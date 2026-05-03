@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-import { expandX } from "../lib/motion.ts";
+import { expandX } from "../../lib/motion.ts";
 
 interface AccentLineProps {
   delay?: number;
