@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
 import {
+  GraphIcon,
+  LayersIcon,
   Pill,
+  PulseRings,
   SlideHeader,
   SlideShell,
+  SyncIcon,
   ThaiText,
 } from "../components/index.ts";
 import { EASE } from "../lib/motion.ts";
@@ -13,146 +17,7 @@ const GLOWS = [
   { bottom: -150, left: -80, size: 500, color: "16,185,129", opacity: 0.08 },
 ];
 
-// ── Pulse rings radiating outward ──────────────────────────────────────────
-function PulseRings({ color, delay }: { color: string; delay: number }) {
-  return (
-    <>
-      {[0, 0.9, 1.8].map((d, i) => (
-        <motion.div
-          key={i}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            borderRadius: "50%",
-            border: `1.5px solid ${color}`,
-            pointerEvents: "none",
-          }}
-          initial={{ scale: 0.6, opacity: 0 }}
-          animate={{ scale: [0.6, 1.4, 2.2], opacity: [0, 0.55, 0] }}
-          transition={{
-            duration: 2.5,
-            delay: delay + d,
-            repeat: Infinity,
-            ease: "easeOut",
-          }}
-        />
-      ))}
-    </>
-  );
-}
-
-// ── Animated icons ─────────────────────────────────────────────────────────
-function IconLayers({ delay }: { delay: number }) {
-  const p = (d: string, sw: number, extra: number) => (
-    <motion.path
-      d={d}
-      stroke="white"
-      strokeWidth={sw}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 1 }}
-      transition={{
-        pathLength: { duration: 0.7, delay: delay + extra, ease: "easeInOut" },
-        opacity: { duration: 0.01, delay: delay + extra },
-      }}
-    />
-  );
-  return (
-    <motion.svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-      {p("M12 2L2 7l10 5 10-5-10-5z", 1.8, 0)}
-      {p("M2 17l10 5 10-5", 1.8, 0.55)}
-      {p("M2 12l10 5 10-5", 1.8, 0.9)}
-    </motion.svg>
-  );
-}
-
-function IconGraph({ delay }: { delay: number }) {
-  const p = (d: string, sw: number, extra: number, opacity = 1) => (
-    <motion.path
-      d={d}
-      stroke={`rgba(255,255,255,${opacity})`}
-      strokeWidth={sw}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 1 }}
-      transition={{
-        pathLength: { duration: 0.5, delay: delay + extra, ease: "easeInOut" },
-        opacity: { duration: 0.01, delay: delay + extra },
-      }}
-    />
-  );
-  const dot = (cx: number, cy: number, extra: number) => (
-    <motion.circle
-      cx={cx}
-      cy={cy}
-      r={1.8}
-      fill="white"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 0.9 }}
-      transition={{ duration: 0.25, delay: delay + extra, ease: "backOut" }}
-    />
-  );
-  return (
-    <motion.svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-      {p("M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0", 1.8, 0)}
-      {p("M12 9.5V4", 1.1, 0.4, 0.65)}
-      {p("M14.5 10.5L19.5 5.5", 1.1, 0.5, 0.65)}
-      {p("M14.5 12H20", 1.1, 0.6, 0.65)}
-      {p("M14.5 13.5L19.5 18.5", 1.1, 0.7, 0.65)}
-      {p("M12 14.5V20", 1.1, 0.8, 0.65)}
-      {p("M9.5 13.5L4.5 18.5", 1.1, 0.9, 0.65)}
-      {p("M9.5 12H4", 1.1, 1.0, 0.65)}
-      {p("M9.5 10.5L4.5 5.5", 1.1, 1.1, 0.65)}
-      {dot(12, 3, 1.2)}
-      {dot(20.5, 4.5, 1.3)}
-      {dot(21, 12, 1.4)}
-      {dot(20.5, 19.5, 1.5)}
-      {dot(12, 21, 1.6)}
-      {dot(3.5, 19.5, 1.7)}
-      {dot(3, 12, 1.8)}
-      {dot(3.5, 4.5, 1.9)}
-    </motion.svg>
-  );
-}
-
-function IconSync({ delay }: { delay: number }) {
-  const p = (d: string, sw: number, extra: number) => (
-    <motion.path
-      d={d}
-      stroke="white"
-      strokeWidth={sw}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 1 }}
-      transition={{
-        pathLength: { duration: 0.8, delay: delay + extra, ease: "easeInOut" },
-        opacity: { duration: 0.01, delay: delay + extra },
-      }}
-    />
-  );
-  return (
-    <motion.svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-      {p("M1 4v6h6", 1.8, 0)}
-      {p("M23 20v-6h-6", 1.8, 0.3)}
-      {p(
-        "M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15",
-        1.8,
-        0.55,
-      )}
-    </motion.svg>
-  );
-}
-
-// ── Card data ──────────────────────────────────────────────────────────────
 const CARDS: {
-  num: string;
   gap: string;
   gapColor: string;
   gapRgb: string;
@@ -165,7 +30,6 @@ const CARDS: {
   Icon: (props: { delay: number }) => ReactElement;
 }[] = [
   {
-    num: "01",
     gap: "The Ingestion Gap",
     gapColor: "#EF4444",
     gapRgb: "239,68,68",
@@ -175,10 +39,9 @@ const CARDS: {
     ringColor: "rgba(196,181,253,0.5)",
     hoverShadow: "0 16px 48px rgba(124,58,237,0.28)",
     cardDelay: 0.28,
-    Icon: IconLayers,
+    Icon: LayersIcon,
   },
   {
-    num: "02",
     gap: "The Contextual Gap",
     gapColor: "#F59E0B",
     gapRgb: "245,158,11",
@@ -188,10 +51,9 @@ const CARDS: {
     ringColor: "rgba(147,210,249,0.5)",
     hoverShadow: "0 16px 48px rgba(6,182,212,0.28)",
     cardDelay: 0.42,
-    Icon: IconGraph,
+    Icon: GraphIcon,
   },
   {
-    num: "03",
     gap: "The Synchronization Gap",
     gapColor: "#10B981",
     gapRgb: "16,185,129",
@@ -201,11 +63,10 @@ const CARDS: {
     ringColor: "rgba(110,231,183,0.5)",
     hoverShadow: "0 16px 48px rgba(16,185,129,0.28)",
     cardDelay: 0.56,
-    Icon: IconSync,
+    Icon: SyncIcon,
   },
 ];
 
-// ── Slide ──────────────────────────────────────────────────────────────────
 export function Slide09() {
   return (
     <SlideShell glows={GLOWS}>
@@ -218,7 +79,6 @@ export function Slide09() {
         marginBottom={24}
       />
 
-      {/* ── 3 Cards ── */}
       <div
         style={{
           flex: 1,
@@ -240,16 +100,9 @@ export function Slide09() {
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: {
-                  duration: 0.7,
-                  delay: card.cardDelay,
-                  ease: EASE,
-                },
+                transition: { duration: 0.7, delay: card.cardDelay, ease: EASE },
               },
-              hover: {
-                y: -6,
-                transition: { duration: 0.2, ease: "easeOut" },
-              },
+              hover: { y: -6, transition: { duration: 0.2, ease: "easeOut" } },
             }}
             style={{
               flex: 1,
@@ -261,15 +114,14 @@ export function Slide09() {
               cursor: "default",
             }}
           >
-            {/* ── Circle icon ── */}
+            {/* Circle icon */}
             <motion.div
               variants={{
                 visible: {
                   boxShadow: `0 4px 24px rgba(${card.gapRgb},0.18), 0 0 0 3px rgba(${card.gapRgb},0.12)`,
                 },
                 hover: {
-                  boxShadow:
-                    card.hoverShadow + `, 0 0 0 4px rgba(${card.gapRgb},0.22)`,
+                  boxShadow: card.hoverShadow + `, 0 0 0 4px rgba(${card.gapRgb},0.22)`,
                 },
               }}
               style={{
@@ -285,17 +137,14 @@ export function Slide09() {
                 flexShrink: 0,
               }}
             >
-              {/* Dot grid */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundImage:
-                    "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+                  backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
                   backgroundSize: "18px 18px",
                 }}
               />
-              {/* Pulse rings + icon */}
               <div
                 style={{
                   position: "relative",
@@ -306,15 +155,12 @@ export function Slide09() {
                   justifyContent: "center",
                 }}
               >
-                <PulseRings
-                  color={card.ringColor}
-                  delay={card.cardDelay + 1.5}
-                />
+                <PulseRings color={card.ringColor} delay={card.cardDelay + 1.5} />
                 <card.Icon delay={card.cardDelay + 0.2} />
               </div>
             </motion.div>
 
-            {/* ── Text below circle ── */}
+            {/* Text below circle */}
             <div
               style={{
                 display: "flex",

@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import {
+  AlertCircleIcon,
   Callout,
+  ClockIcon,
+  CostIcon,
   HorizontalDivider,
   IconCard,
   IconTile,
+  ScatterIcon,
+  SearchFailIcon,
   SectionTitle,
   SlideHeader,
   SlideShell,
@@ -17,77 +22,13 @@ const GLOWS = [
   { top: -180, right: -100, size: 560, color: "124,58,237", opacity: 0.1 },
 ];
 
-function SearchFailIcon() {
-  return (
-    <IconTile rgb="239,68,68">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <circle cx="11" cy="11" r="7" stroke="#EF4444" strokeWidth="2" />
-        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
-        <line x1="9" y1="9" x2="13" y2="13" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
-        <line x1="13" y1="9" x2="9" y2="13" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </IconTile>
-  );
-}
-
-function ScatterIcon() {
-  return (
-    <IconTile rgb="239,68,68">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="2" width="6" height="6" rx="2" fill="#EF4444" opacity="0.7" />
-        <rect x="16" y="2" width="6" height="6" rx="2" fill="#EF4444" opacity="0.5" />
-        <rect x="9" y="9" width="6" height="6" rx="2" fill="#EF4444" opacity="0.9" />
-        <rect x="2" y="16" width="6" height="6" rx="2" fill="#EF4444" opacity="0.4" />
-        <rect x="16" y="16" width="6" height="6" rx="2" fill="#EF4444" opacity="0.6" />
-      </svg>
-    </IconTile>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <IconTile rgb="245,158,11">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#F59E0B" strokeWidth="2" />
-        <polyline points="12 7 12 12 15 15" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </IconTile>
-  );
-}
-
-function AlertCircleIcon() {
-  return (
-    <IconTile rgb="239,68,68">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="10" stroke="#EF4444" strokeWidth="2" />
-        <line x1="12" y1="8" x2="12" y2="12" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="12" cy="16" r="1" fill="#EF4444" />
-      </svg>
-    </IconTile>
-  );
-}
-
-function CostIcon() {
-  return (
-    <IconTile rgb="245,158,11">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="7" width="20" height="14" rx="2" stroke="#F59E0B" strokeWidth="2" />
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke="#F59E0B" strokeWidth="2" />
-        <line x1="12" y1="12" x2="12" y2="16" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
-        <line x1="10" y1="14" x2="14" y2="14" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </IconTile>
-  );
-}
-
 export function Slide04() {
   return (
     <SlideShell glows={GLOWS}>
       <SlideHeader label="Problems" title="The" highlight="Problem." />
 
-      {/* Areas 2 + 3: Two columns filling remaining height */}
       <div style={{ flex: 1, display: "flex", gap: 24, minHeight: 0 }}>
-        {/* Area 2: Lanyard — left column, full height */}
+        {/* Lanyard — left column */}
         <motion.div {...fadeIn(0.3)} style={{ flex: 1, minHeight: 0 }}>
           <Lanyard
             position={[0, 0, 15]}
@@ -97,7 +38,7 @@ export function Slide04() {
           />
         </motion.div>
 
-        {/* Area 3: Content — right column */}
+        {/* Content — right column */}
         <motion.div
           {...fadeInRight(0.42)}
           style={{

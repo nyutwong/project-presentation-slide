@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import {
   BigGhostNumber,
   IconTile,
+  LegacySearchIcon,
+  NaiveRagIcon,
   Pill,
+  ProposedSystemIcon,
   SlideHeader,
   SlideShell,
   ThaiText,
@@ -22,38 +25,7 @@ const LEVELS = [
     accentRgb: "239,68,68",
     status: "Legacy",
     desc: "ปัญหา: ใช้ Keyword ค้นหาเอกสาร ทำให้ไม่รู้ intent จริงๆ ของผู้ใช้ ได้ผลเป็นเอกสารมากมาย แต่ไม่ตรงกับที่หา",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <circle cx="11" cy="11" r="7" stroke="#EF4444" strokeWidth="2" />
-        <line
-          x1="16.5"
-          y1="16.5"
-          x2="21"
-          y2="21"
-          stroke="#EF4444"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="8"
-          y1="11"
-          x2="14"
-          y2="11"
-          stroke="#EF4444"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="11"
-          y1="8"
-          x2="11"
-          y2="14"
-          stroke="#EF4444"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: <LegacySearchIcon />,
   },
   {
     num: "02",
@@ -62,34 +34,7 @@ const LEVELS = [
     accentRgb: "245,158,11",
     status: "Partial",
     desc: "ปัญหา: ตอบคำถามด้วย Natural-Language ได้ แต่ยังขาด Context/Meta ที่ดีของข้อมูล",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-          stroke="#F59E0B"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <line
-          x1="9"
-          y1="10"
-          x2="15"
-          y2="10"
-          stroke="#F59E0B"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-        <line
-          x1="9"
-          y1="14"
-          x2="13"
-          y2="14"
-          stroke="#F59E0B"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: <NaiveRagIcon />,
   },
   {
     num: "03",
@@ -98,24 +43,7 @@ const LEVELS = [
     accentRgb: "124,58,237",
     status: "Aingo",
     desc: "อัปเกรด Data Pipeline ทำให้ได้ Data ที่มีความเที่ยงตรง มี Agent ที่ฉลาดสำหรับการตอบคำถาม",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <defs>
-          <linearGradient
-            id="zap-g"
-            x1="4"
-            y1="2"
-            x2="20"
-            y2="22"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#7C3AED" />
-            <stop offset="1" stopColor="#A855F7" />
-          </linearGradient>
-        </defs>
-        <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="url(#zap-g)" />
-      </svg>
-    ),
+    icon: <ProposedSystemIcon />,
   },
 ];
 

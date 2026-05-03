@@ -29,3 +29,18 @@ export { BenefitItem } from "./BenefitItem.tsx";
 
 // ─── 3D / Special ──────────────────────────────────────────────────────────
 export { default as Lanyard } from "./Lanyard.tsx";
+
+// ─── Icons ─────────────────────────────────────────────────────────────────
+export { ZapIcon, ParadoxIcon } from "./icons/BackgroundIcons.tsx";
+export { SearchFailIcon, ScatterIcon, ClockIcon, AlertCircleIcon, CostIcon } from "./icons/ProblemIcons.tsx";
+export { LegacySearchIcon, NaiveRagIcon, ProposedSystemIcon } from "./icons/EvolutionIcons.tsx";
+export { PulseRings, LayersIcon, GraphIcon, SyncIcon } from "./icons/ApproachIcons.tsx";
+export {
+  ObjectiveColumnIcon,
+  ScopeColumnIcon,
+  ResearchDesignIcon,
+  EvaluationIcon,
+  ImplementationIcon,
+  DataIngestionIcon,
+  ChatUIIcon,
+} from "./icons/ObjectiveScopeIcons.tsx";
