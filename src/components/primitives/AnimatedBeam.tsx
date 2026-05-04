@@ -48,6 +48,7 @@ export interface AnimatedBeamProps {
   endXOffset?: number;
   endYOffset?: number;
   showArrow?: boolean;
+  arrowColor?: string;
 }
 
 export function AnimatedBeam({
@@ -73,6 +74,7 @@ export function AnimatedBeam({
   endXOffset = 0,
   endYOffset = 0,
   showArrow = false,
+  arrowColor,
 }: AnimatedBeamProps) {
   const id = useId();
   const [pathD, setPathD] = useState("");
@@ -249,7 +251,7 @@ export function AnimatedBeam({
       {showArrow && arrowInfo && (
         <polygon
           points="-5,-4 7,0 -5,4"
-          fill={gradientStopColor}
+          fill={arrowColor ?? gradientStopColor}
           opacity={0.8}
           transform={`translate(${arrowInfo.x},${arrowInfo.y}) rotate(${arrowInfo.angle})`}
         />
