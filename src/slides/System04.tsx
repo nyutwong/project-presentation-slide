@@ -247,7 +247,7 @@ function FlowArrow({ label, color = "#9CA3AF", traveling = false }: { label?: st
 }
 
 // ── Slide ─────────────────────────────────────────────────────────────────
-export function Slide14() {
+export function System04() {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {

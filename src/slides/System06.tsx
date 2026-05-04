@@ -404,7 +404,7 @@ function AnnotationCard({
 }
 
 // ── Slide ─────────────────────────────────────────────────────────────────────
-export function Slide16() {
+export function System06() {
   const containerRef = useRef<HTMLDivElement>(null);
   const queryRef = useRef<HTMLDivElement>(null);
   const hydeRef = useRef<HTMLDivElement>(null);

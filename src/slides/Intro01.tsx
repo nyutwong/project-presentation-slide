@@ -7,7 +7,7 @@ const GLOWS = [
   { bottom: -200, left: -120, size: 640, color: "168,85,247", opacity: 0.09 },
 ];
 
-export function Slide01() {
+export function Intro01() {
   return (
     <SlideShell glows={GLOWS}>
       {/* Top bar */}

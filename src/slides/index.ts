@@ -1,54 +1,66 @@
 import type { ComponentType } from 'react';
-import { Slide01 } from './Slide01.tsx';
-import { TOCSlide } from './TOCSlide.tsx';
-import { Slide02 } from './Slide02.tsx';
-import { Slide03 } from './Slide03.tsx';
-import { Slide04 } from './Slide04.tsx';
-import { Slide05 } from './Slide05.tsx';
-import { Slide06 } from './Slide06.tsx';
-import { Slide07 } from './Slide07.tsx';
-import { Slide08 } from './Slide08.tsx';
-import { Slide09 } from './Slide09.tsx';
-import { Slide10 } from './Slide10.tsx';
-import { Slide11 } from './Slide11.tsx';
-import { Slide12 } from './Slide12.tsx';
-import { Slide13 } from './Slide13.tsx';
-import { Slide14 } from './Slide14.tsx';
-import { Slide15 } from './Slide15.tsx';
-import { Slide16 } from './Slide16.tsx';
-import { Slide17 } from './Slide17.tsx';
-import { Slide18 } from './Slide18.tsx';
-import { Slide19 } from './Slide19.tsx';
-import { Slide20 } from './Slide20.tsx';
-import { Slide21 } from './Slide21.tsx';
-import { Slide22 } from './Slide22.tsx';
+// ── Intro ──────────────────────────────────────────────────────────────────
+import { Intro01 } from './Intro01.tsx';
+import { Intro02 } from './Intro02.tsx';
+// ── Problem Definition ─────────────────────────────────────────────────────
+import { Problem01 } from './Problem01.tsx';
+import { Problem02 } from './Problem02.tsx';
+import { Problem03 } from './Problem03.tsx';
+import { Problem04 } from './Problem04.tsx';
+import { Problem05 } from './Problem05.tsx';
+// ── Approach ───────────────────────────────────────────────────────────────
+import { Approach01 } from './Approach01.tsx';
+import { Approach02 } from './Approach02.tsx';
+import { Approach03 } from './Approach03.tsx';
+import { Approach04 } from './Approach04.tsx';
+// ── System Design & Implementation ─────────────────────────────────────────
+import { System01 } from './System01.tsx';
+import { System02 } from './System02.tsx';
+import { System03 } from './System03.tsx';
+import { System04 } from './System04.tsx';
+import { System05 } from './System05.tsx';
+import { System06 } from './System06.tsx';
+// ── Testing & Evaluation ───────────────────────────────────────────────────
+import { Eval01 } from './Eval01.tsx';
+import { Eval02 } from './Eval02.tsx';
+// ── Team & Timeline ────────────────────────────────────────────────────────
+import { Team01 } from './Team01.tsx';
+import { Team02 } from './Team02.tsx';
+import { Team03 } from './Team03.tsx';
+import { Team04 } from './Team04.tsx';
 import { TempSlide } from './TempSlide.tsx';
 
 export type SlideComponent = ComponentType;
 
 export const slides: SlideComponent[] = [
-  Slide01,
-  TOCSlide,
-  Slide02,
-  Slide03,
-  Slide04,
-  Slide05,
-  Slide06,
-  Slide07,
-  Slide08,
-  Slide09,
-  Slide10,
-  Slide11,
-  Slide12,
-  Slide13,
-  Slide14,
-  Slide15,
-  Slide16,
-  Slide17,
-  Slide18,
-  Slide19,
-  Slide20,
-  Slide21,
-  Slide22,
+  // Intro
+  Intro01,
+  Intro02,
+  // Problem Definition
+  Problem01,
+  Problem02,
+  Problem03,
+  Problem04,
+  Problem05,
+  // Approach
+  Approach01,
+  Approach02,
+  Approach03,
+  Approach04,
+  // System Design & Implementation
+  System01,
+  System02,
+  System03,
+  System04,
+  System05,
+  System06,
+  // Testing & Evaluation
+  Eval01,
+  Eval02,
+  // Team & Timeline
+  Team01,
+  Team02,
+  Team03,
+  Team04,
   // TempSlide,
 ];

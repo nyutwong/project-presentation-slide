@@ -139,7 +139,7 @@ function TimelineTrack({ title, subtitle, data, delayOffset }: { title: string, 
   );
 }
 
-export function Slide21() {
+export function Team03() {
   return (
     <SlideShell
       glowColorTop="#3B82F6"

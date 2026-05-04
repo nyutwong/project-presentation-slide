@@ -161,7 +161,7 @@ function GridBeam({
   );
 }
 
-export function Slide12() {
+export function System02() {
   const containerRef = useRef<HTMLDivElement>(null);
   const frontendRef = useRef<HTMLDivElement>(null);
   const webhookRef = useRef<HTMLDivElement>(null);

@@ -1,5 +1,5 @@
 import { SectionDivider } from "../components/index.ts";
 
-export function Slide07() {
+export function Approach01() {
   return <SectionDivider prefix="Problem" highlight="Solution." />;
 }

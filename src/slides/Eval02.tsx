@@ -158,7 +158,7 @@ const METRICS = [
   },
 ] as const;
 
-export function Slide18() {
+export function Eval02() {
   return (
     <SlideShell
       glowColorTop="#7C3AED"

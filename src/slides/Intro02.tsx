@@ -22,7 +22,7 @@ const DEFAULT_ITEMS: TOCItem[] = [
   { id: "05", title: "Team & Timeline", subtitle: "Project roadmap and execution plan.", page: "20" },
 ];
 
-export function TOCSlide({ items = DEFAULT_ITEMS }: TOCSlideProps) {
+export function Intro02({ items = DEFAULT_ITEMS }: TOCSlideProps) {
   const goTo = useGoTo();
   return (
     <SlideShell>

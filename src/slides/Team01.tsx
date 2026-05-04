@@ -1,5 +1,5 @@
 import { SectionDivider } from "../components/index.ts";
 
-export function Slide19() {
+export function Team01() {
   return <SectionDivider prefix="Team &" highlight="Timeline." />;
 }

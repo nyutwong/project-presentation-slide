@@ -344,7 +344,7 @@ function ConceptCard({
 
 // ── Slide ─────────────────────────────────────────────────────────────────────
 
-export function Slide15() {
+export function System05() {
   return (
     <SlideShell glows={GLOWS}>
       <SlideHeader

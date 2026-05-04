@@ -64,7 +64,7 @@ const LEVELS: LevelData[] = [
   },
 ];
 
-export function Slide06() {
+export function Problem05() {
   return (
     <SlideShell glows={GLOWS}>
       <SlideHeader

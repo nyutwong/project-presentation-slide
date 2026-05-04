@@ -30,7 +30,7 @@ const cardBodyStyle = {
   margin: 0,
 } as const;
 
-export function Slide03() {
+export function Problem02() {
   return (
     <SlideShell glows={GLOWS}>
       <SlideLabel label="Section" style={{ marginBottom: 40 }} />
